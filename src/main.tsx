@@ -6,6 +6,7 @@ import { router } from "./Routing/Router";
 import "./main.scss";
 
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { ToastContainer } from "react-toastify";
 const client = new ApolloClient({
 	uri: "https://api-sa-east-1.hygraph.com/v2/clh81fvt0893f01ujaitm8ska/master",
 	cache: new InMemoryCache(),
@@ -17,6 +18,7 @@ const client = new ApolloClient({
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 	<React.StrictMode>
 		<ApolloProvider client={client}>
+			<ToastContainer />
 			<RouterProvider router={router} />
 		</ApolloProvider>
 	</React.StrictMode>

@@ -74,7 +74,7 @@ const EditMember = () => {
 				toast.update(toastId, {
 					type: toast.TYPE.SUCCESS,
 					position: "top-right",
-					autoClose: 2000,
+					autoClose: 5000,
 					render: "Membro editado com sucesso!",
 					hideProgressBar: false,
 					closeOnClick: true,
@@ -85,9 +85,7 @@ const EditMember = () => {
 					theme: "colored",
 				});
 
-				setTimeout(() => {
-					navigate("/membros");
-				}, 2500);
+				navigate("/membros");
 			},
 			onError: (error: any) => {
 				console.log({ error });
@@ -115,12 +113,6 @@ const EditMember = () => {
 
 	return (
 		<div className="create-member">
-			<ToastContainer
-				className={"react-toastify"}
-				style={{
-					top: "80px",
-				}}
-			/>
 			<Form onSubmit={handleSubmit(onSubmit)}>
 				<CustomText name="nickname" label="Nickname *" control={control} placeholder="" />
 				<CustomSelect

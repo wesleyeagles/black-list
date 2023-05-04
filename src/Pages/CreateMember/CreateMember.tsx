@@ -83,12 +83,6 @@ const CreateMember = () => {
 
 	return (
 		<div className="create-member">
-			<ToastContainer
-				className={"react-toastify"}
-				style={{
-					top: "80px",
-				}}
-			/>
 			<Form onSubmit={handleSubmit(onSubmit)}>
 				<CustomText name="nickname" label="Nickname *" control={control} placeholder="" />
 				<CustomSelect
