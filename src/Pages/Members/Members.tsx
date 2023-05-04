@@ -3,6 +3,8 @@ import DataTable from "react-data-table-component";
 import { getMembers } from "../../Queries/getMembers";
 import { Link } from "react-router-dom";
 import { FaEdit } from "react-icons/fa";
+import axios from "axios";
+import { useEffect } from "react";
 
 const Members = () => {
 	const columns = [
@@ -54,9 +56,11 @@ const Members = () => {
 	];
 	const { data } = useQuery(getMembers);
 	return (
-		<div className="d-flex justify-content-center">
-			<div className="data-table">{data ? <DataTable responsive striped paginationRowsPerPageOptions={[10]} highlightOnHover data={data.members} columns={columns} pagination /> : null}</div>
-		</div>
+		<>
+			<div className="d-flex justify-content-center">
+				<div className="data-table">{data ? <DataTable responsive striped paginationRowsPerPageOptions={[10]} highlightOnHover data={data.members} columns={columns} pagination /> : null}</div>
+			</div>
+		</>
 	);
 };
 

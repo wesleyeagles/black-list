@@ -14,6 +14,13 @@ body {
 .class-icon {
   width: 40px;
 }
+
+.discord-widget {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+}
   
   .my-error {
     color: #f00;
