@@ -3,8 +3,6 @@ import DataTable from "react-data-table-component";
 import { getMembers } from "../../Queries/getMembers";
 import { Link } from "react-router-dom";
 import { FaEdit } from "react-icons/fa";
-import axios from "axios";
-import { useEffect } from "react";
 
 const Members = () => {
 	const columns = [

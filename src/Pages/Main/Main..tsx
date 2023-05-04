@@ -18,6 +18,18 @@ const Main = () => {
 		}
 	}, [location]);
 
+	const [page, setPage] = useState(0);
+
+	useEffect(() => {
+		if (location.pathname === "/") {
+			setPage(0);
+		} else if (location.pathname === "/criar-membro") {
+			setPage(1);
+		} else if (location.pathname === "/membros") {
+			setPage(2);
+		}
+	}, [location]);
+
 	return (
 		<>
 			<ToastContainer
@@ -29,9 +41,15 @@ const Main = () => {
 			<div className="main">
 				<div className="header">
 					<div className="navigation">
-						<Link to="/">Inicio</Link>
-						<Link to="/criar-membro">Cadastrar membro</Link>
-						<Link to="/membros">Ver membros</Link>
+						<Link className={`${page === 0 ? "selected-link" : null}`} to="/">
+							Inicio
+						</Link>
+						<Link className={`${page === 1 ? "selected-link" : null}`} to="/criar-membro">
+							Cadastrar membro
+						</Link>
+						<Link className={`${page === 2 ? "selected-link" : null}`} to="/membros">
+							Ver membros
+						</Link>
 					</div>
 				</div>
 				<>
