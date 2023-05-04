@@ -14,15 +14,15 @@ const Members = () => {
 			name: "Classe",
 			selector: (row: any) => {
 				if (row.class === "Tanker") {
-					return <img className="class-icon" alt="Mercenary" src="./public/mercenary.gif" />;
+					return <img className="class-icon" alt="Mercenary" src="./mercenary.gif" />;
 				} else if (row.class === "Punisher") {
-					return <img className="class-icon" alt="Punisher" src="./public/punisher.gif" />;
+					return <img className="class-icon" alt="Punisher" src="./punisher.gif" />;
 				} else if (row.class === "Striker") {
-					return <img className="class-icon" src="./public/striker.gif" />;
+					return <img className="class-icon" src="./striker.gif" />;
 				} else if (row.class === "Trapper") {
-					return <img className="class-icon" src="./public/scout.gif" />;
+					return <img className="class-icon" src="./scout.gif" />;
 				} else if (row.class === "Spec") {
-					return <img className="class-icon" src="./public/scientist.gif" />;
+					return <img className="class-icon" src="./scientist.gif" />;
 				}
 			},
 		},

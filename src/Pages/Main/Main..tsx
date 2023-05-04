@@ -110,22 +110,22 @@ const Main = () => {
 							<div className="droplist-images">
 								<Carousel className="custom-carousel">
 									<Carousel.Item>
-										<img className="d-block carousel-img" src="./public/HQDroplist.png" alt="First slide" />
+										<img className="d-block carousel-img" src="./HQDroplist.png" alt="First slide" />
 									</Carousel.Item>
 									<Carousel.Item>
-										<img className="d-block carousel-img" src="./public/SetteDroplist.png" alt="Second slide" />
+										<img className="d-block carousel-img" src="./SetteDroplist.png" alt="Second slide" />
 									</Carousel.Item>
 									<Carousel.Item>
-										<img className="d-block carousel-img" src="./public/CaldDroplist.png" alt="Third slide" />
+										<img className="d-block carousel-img" src="./CaldDroplist.png" alt="Third slide" />
 									</Carousel.Item>
 									<Carousel.Item>
-										<img className="d-block carousel-img" src="./public/ElanDroplist.png" alt="Third slide" />
+										<img className="d-block carousel-img" src="./ElanDroplist.png" alt="Third slide" />
 									</Carousel.Item>
 									<Carousel.Item>
-										<img className="d-block carousel-img" src="./public/CragDroplist.png" alt="Third slide" />
+										<img className="d-block carousel-img" src="./CragDroplist.png" alt="Third slide" />
 									</Carousel.Item>
 									<Carousel.Item>
-										<img className="d-block carousel-img" src="./public/BMDroplist.png" alt="Third slide" />
+										<img className="d-block carousel-img" src="./BMDroplist.png" alt="Third slide" />
 									</Carousel.Item>
 								</Carousel>
 							</div>
