@@ -42,7 +42,7 @@ const CreateMember = () => {
 		});
 
 		addAccount({
-			refetchQueries: ["getAccounts"],
+			refetchQueries: ["getMembers"],
 			variables: {
 				...data,
 			},

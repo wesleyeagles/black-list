@@ -65,7 +65,7 @@ const EditMember = () => {
 		});
 
 		editeMember({
-			refetchQueries: ["getAccounts"],
+			refetchQueries: ["getMembers"],
 			variables: {
 				id: dataMember.member.id,
 				data: data,
