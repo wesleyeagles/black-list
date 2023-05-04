@@ -1,0 +1,165 @@
+body {
+  background-image: url("https://rfseapvp.com/images/rfseapvp.jpg");
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.my-input {
+  display: block;
+}
+
+.class-icon {
+  width: 40px;
+}
+  
+  .my-error {
+    color: #f00;
+    font-size: 14px;
+    display: block!important;
+  }
+
+  .data-table {
+    flex: none;
+    width: 1000px;
+    flex: none;
+    border-radius: 4px;
+  }
+
+  .rdt_Table {
+    height: 540px!important;
+  }
+  
+  .my-button {
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    cursor: pointer;
+    
+    .loading {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    &:disabled {
+      background-color: #c0c0c0!important;
+    }
+  }
+  
+  .my-button:hover {
+    background-color: #0069d9;
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+
+    h2 {
+      color: white;
+    }
+
+    p {
+      color: white;
+    }
+
+    ul {
+      li {
+        color: white;
+        a {
+          color: white;
+        }
+      }
+    }
+
+    .header {
+      height: 90px;
+      flex: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-inline: 40px;
+      color: #23292c;
+
+      .navigation {
+        display: flex;
+        gap: 12px;
+      }
+
+      a {
+        color: #23292c;
+        text-decoration: none;
+        background-color: white;
+        font-weight: bold;
+        padding-inline: 8px;
+        padding-block: 4px;
+        font-size: 14px;
+        border-radius: 4px;
+        transition: .4s;
+
+        &:hover {
+          background-color: #007bff;
+          color: white;
+        }
+      }
+      
+    }
+
+    .inicio {
+      height: 100%;
+      padding-left: 500px;
+      padding-block: 40px;
+      display: flex;
+      gap: 0px;
+
+      .inicio-1 {
+        width: 35%;
+        p {
+          width: 80%;
+        }
+      }
+
+      .carousel {
+        width: 650px;
+        border: solid 1px white;
+        border-radius: 4px;
+        overflow: hidden;
+      }
+
+      .carousel-img {
+        width: 100%!important;
+        height: 700px;
+        object-fit: cover;
+      }
+
+      .info-guild {
+        margin-top: 60px;
+      }
+
+      .server-info {
+        margin-top: 60px;
+        ul {
+          margin-top: 4px;
+        }
+      }
+    }
+
+    .footer {
+      height: 90px;
+      background: #23292c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+  }
