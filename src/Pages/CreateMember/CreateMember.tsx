@@ -1,4 +1,4 @@
-import { Button, Form, ToastContainer } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -10,6 +10,7 @@ import CustomSelect from "../../Components/FormInputs/CustomSelectInput/CustomSe
 import CustomCheckbox from "../../Components/FormInputs/CustomCheckbox/CustomCheckbox";
 import "./createmember.scss";
 import LoadingIcon from "../../assets/Icones/LoadingIcon";
+import { useNavigate } from "react-router-dom";
 
 const CreateMember = () => {
 	const { control, handleSubmit, setError, getValues } = useForm({
@@ -21,6 +22,8 @@ const CreateMember = () => {
 			playOnOpen: false,
 		},
 	});
+
+	const navigate = useNavigate();
 
 	const [addAccount, { loading }] = useMutation(createMember);
 
@@ -57,6 +60,8 @@ const CreateMember = () => {
 					progress: undefined,
 					theme: "colored",
 				});
+
+				navigate("/membros");
 			},
 			onError: (error: any) => {
 				if ({ error }.error.networkError?.result.errors[0].message.includes("nickname")) {
