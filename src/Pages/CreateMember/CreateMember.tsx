@@ -1,4 +1,4 @@
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, ToastContainer } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -83,6 +83,12 @@ const CreateMember = () => {
 
 	return (
 		<div className="create-member">
+			<ToastContainer
+				className={"react-toastify"}
+				style={{
+					top: "80px",
+				}}
+			/>
 			<Form onSubmit={handleSubmit(onSubmit)}>
 				<CustomText name="nickname" label="Nickname *" control={control} placeholder="" />
 				<CustomSelect
