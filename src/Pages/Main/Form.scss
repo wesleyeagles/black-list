@@ -32,7 +32,8 @@ body {
     flex: none;
     width: 1000px;
     flex: none;
-    border-radius: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
   }
 
   .rdt_Table {
@@ -121,6 +122,28 @@ body {
 
       }
       
+    }
+
+    .class-count {
+      background-color: white;
+      width: 100%;
+      height: 50px;
+      border-top: 1px solid rgb(183, 179, 179);
+      display: flex;
+      gap: 10px;
+      padding: 12px;
+
+      .count {
+        border: solid 1px black;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        height: 31px;
+        width: 55px;
+        img {
+          width: 30px;
+        }
+      }
     }
 
     .selected-link {

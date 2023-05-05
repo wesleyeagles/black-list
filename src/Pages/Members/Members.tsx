@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import DataTable from "react-data-table-component";
-import { getMembers } from "../../Queries/getMembers";
+import { getMembers, getMembersPunisher, getMembersSpec, getMembersStriker, getMembersTanker, getMembersTrapper } from "../../Queries/getMembers";
 import { Link } from "react-router-dom";
 import { FaEdit } from "react-icons/fa";
 
@@ -31,6 +31,10 @@ const Members = () => {
 			selector: (row: any) => row["discordId"],
 		},
 		{
+			name: "Cargo",
+			selector: "cargo",
+		},
+		{
 			name: "PT Principal",
 			selector: (row: any) => {
 				if (row.playOnOpen) {
@@ -53,10 +57,44 @@ const Members = () => {
 		},
 	];
 	const { data } = useQuery(getMembers);
+	const { data: punishers } = useQuery(getMembersPunisher);
+	const { data: tankers } = useQuery(getMembersTanker);
+	const { data: strikers } = useQuery(getMembersStriker);
+	const { data: trappers } = useQuery(getMembersTrapper);
+	const { data: specs } = useQuery(getMembersSpec);
 	return (
 		<>
 			<div className="d-flex justify-content-center">
-				<div className="data-table">{data ? <DataTable responsive striped paginationRowsPerPageOptions={[10]} highlightOnHover data={data.members} columns={columns} pagination /> : null}</div>
+				<div className="data-table">
+					{data ? <DataTable responsive striped paginationRowsPerPageOptions={[10]} highlightOnHover data={data.members} columns={columns} pagination /> : null}
+					<div className="class-count">
+						{punishers ? (
+							<div className="count">
+								<img src="./punisher.gif" /> {punishers.members.length}
+							</div>
+						) : null}
+						{tankers ? (
+							<div className="count">
+								<img src="./mercenary.gif" /> {tankers.members.length}
+							</div>
+						) : null}
+						{strikers ? (
+							<div className="count">
+								<img src="./striker.gif" /> {strikers.members.length}
+							</div>
+						) : null}
+						{trappers ? (
+							<div className="count">
+								<img src="./scout.gif" /> {trappers.members.length}
+							</div>
+						) : null}
+						{specs ? (
+							<div className="count">
+								<img src="./scientist.gif" /> {specs.members.length}
+							</div>
+						) : null}
+					</div>
+				</div>
 			</div>
 		</>
 	);

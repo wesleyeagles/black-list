@@ -45,6 +45,7 @@ const CreateMember = () => {
 			refetchQueries: "all",
 			variables: {
 				...data,
+				cargo: "Membro",
 			},
 			onCompleted: () => {
 				toast.update(toastId, {
@@ -64,6 +65,7 @@ const CreateMember = () => {
 				navigate("/membros");
 			},
 			onError: (error: any) => {
+				console.log({ error });
 				if ({ error }.error.networkError?.result.errors[0].message.includes("nickname")) {
 					setError("nickname", {
 						message: "Esse Nickname já existe",

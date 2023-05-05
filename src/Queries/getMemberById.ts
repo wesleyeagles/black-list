@@ -7,6 +7,7 @@ export const getMemberById = gql`
 			playOnOpen
 			class
 			discordId
+			cargo
 			id
 		}
 	}
