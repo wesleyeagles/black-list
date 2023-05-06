@@ -69,7 +69,14 @@ const Main = () => {
 						<Link className={`${page === 2 ? "selected-link" : null}`} to="/membros">
 							Ver membros
 						</Link>
-						<Button onClick={() => localStorage.clear()}>Logout</Button>
+						<Button
+							onClick={() => {
+								localStorage.clear();
+								navigate("/login");
+							}}
+						>
+							Logout
+						</Button>
 					</div>
 				</div>
 				<>
