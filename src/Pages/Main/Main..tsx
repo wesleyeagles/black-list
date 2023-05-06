@@ -1,14 +1,36 @@
 import "react-toastify/dist/ReactToastify.css";
 import "./Form.scss";
 import { useEffect, useState } from "react";
-import { Link, Outlet, useLocation } from "react-router-dom";
-import { Carousel, ToastContainer } from "react-bootstrap";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Button, Carousel, ToastContainer } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useAuthenticated } from "../Authentication/Login/Lib/Hooks/useAuthenticated";
+import { toast } from "react-toastify";
 // Mutations
 
 const Main = () => {
 	const location = useLocation();
+	const navigate = useNavigate();
 	const [urlState, setUrlState] = useState(false);
+
+	const { token } = useAuthenticated();
+
+	useEffect(() => {
+		if (typeof token != "string") {
+			toast.info("Usuário não autenticado, por favor faça o login!", {
+				type: toast.TYPE.INFO,
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				isLoading: false,
+				progress: undefined,
+				theme: "colored",
+			});
+			navigate("/login");
+		}
+	}, [token]);
 
 	useEffect(() => {
 		if (location.pathname === "/") {
@@ -16,11 +38,6 @@ const Main = () => {
 		} else {
 			setUrlState(false);
 		}
-	}, [location]);
-
-	const [page, setPage] = useState(0);
-
-	useEffect(() => {
 		if (location.pathname === "/") {
 			setPage(0);
 		} else if (location.pathname === "/criar-membro") {
@@ -30,8 +47,10 @@ const Main = () => {
 		}
 	}, [location]);
 
+	const [page, setPage] = useState(0);
+
 	return (
-		<>
+		<div className="container-wrapper">
 			<ToastContainer
 				className={"react-toastify"}
 				style={{
@@ -50,6 +69,7 @@ const Main = () => {
 						<Link className={`${page === 2 ? "selected-link" : null}`} to="/membros">
 							Ver membros
 						</Link>
+						<Button onClick={() => localStorage.clear()}>Logout</Button>
 					</div>
 				</div>
 				<>
@@ -163,7 +183,7 @@ const Main = () => {
 				</div>
 				<div className="footer">Em Desenvolvimento</div>
 			</div>
-		</>
+		</div>
 	);
 };
 

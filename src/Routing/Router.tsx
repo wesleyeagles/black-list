@@ -3,6 +3,7 @@ import Main from "../Pages/Main/Main.";
 import CreateMember from "../Pages/CreateMember/CreateMember";
 import Members from "../Pages/Members/Members";
 import EditMember from "../Pages/EditMember/EditMember";
+import Login from "../Pages/Authentication/Login/Login";
 
 export const router = createBrowserRouter([
 	{
@@ -24,6 +25,7 @@ export const router = createBrowserRouter([
 		],
 	},
 	{
-		path: "noticias",
+		path: "/login",
+		element: <Login />,
 	},
 ]);

@@ -66,7 +66,18 @@ const Members = () => {
 		<>
 			<div className="d-flex justify-content-center">
 				<div className="data-table">
-					{data ? <DataTable responsive striped paginationRowsPerPageOptions={[10]} highlightOnHover data={data.members} columns={columns} pagination /> : null}
+					{data ? (
+						<DataTable
+							paginationComponentOptions={{ rowsPerPageText: "Linhas por página" }}
+							responsive
+							striped
+							paginationRowsPerPageOptions={[10]}
+							highlightOnHover
+							data={data.members}
+							columns={columns}
+							pagination
+						/>
+					) : null}
 					<div className="class-count">
 						{punishers ? (
 							<div className="count">
