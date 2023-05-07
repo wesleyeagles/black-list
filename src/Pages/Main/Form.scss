@@ -148,15 +148,9 @@
       }
     }
 
-    .selected-link {
-      background-color: #007bff!important;
-      color: white!important;
-    }
-
     .inicio {
       height: 100%;
       padding-left: 500px;
-      padding-block: 40px;
       display: flex;
       gap: 0px;
 
@@ -192,12 +186,4 @@
       }
     }
 
-    .footer {
-      height: 90px;
-      background: #23292c;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-    }
   }

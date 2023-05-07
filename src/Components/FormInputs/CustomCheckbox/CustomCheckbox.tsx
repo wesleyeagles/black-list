@@ -3,7 +3,6 @@ import { InputHTMLAttributes, PropsWithChildren } from "react";
 import { Controller } from "react-hook-form";
 import { Control, FieldValues, Path } from "react-hook-form/dist/types";
 import "./checkbox.scss";
-import { Input } from "reactstrap";
 
 interface ICustomCheckboxProps<TFields extends FieldValues> extends Omit<InputHTMLAttributes<HTMLInputElement>, "type">, PropsWithChildren {
 	name: Path<TFields>;
@@ -25,7 +24,8 @@ const CustomCheckbox = <TFields extends FieldValues>({ name, control, label, che
 				render={({ field: { name, onChange, ...field }, fieldState }) => (
 					<>
 						<div className="checkbox-wrapper">
-							<Input
+							<Form.Label htmlFor={name}>{label}</Form.Label>
+							<Form.Check
 								{...props}
 								{...field}
 								onChange={(e) => {
@@ -35,12 +35,12 @@ const CustomCheckbox = <TFields extends FieldValues>({ name, control, label, che
 									props.onChange?.(e);
 								}}
 								id={props.id || name}
-								type="checkbox"
+								type="switch"
+								color="success"
 								placeholder={placeholder}
 								isInvalid={!!fieldState.error}
 								checked={field.value === (checkboxValue?.checked || true)}
 							/>
-							<Form.Label htmlFor={name}>{label}</Form.Label>
 						</div>
 						<Form.Control.Feedback type="invalid" className="my-error">
 							{fieldState.error?.message?.toString()}

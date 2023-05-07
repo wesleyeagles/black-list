@@ -9,22 +9,24 @@
 		align-items: center;
 
 		.login-box {
+            position: relative;
 			width: 1000px;
 			height: 600px;
             display: flex;
-            justify-content: end;
 			background: rgb(2, 0, 36);
-			background: linear-gradient(270deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+			background: black(270deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
             box-shadow: 0px 0px 8px 0px black;
             overflow: hidden;
-			border-radius: 20px;
+			border-radius: 32px;
+            transition: 0.6s;
 
             .login-box-text {
-                width: 100%;
+                width: 400px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
+                transition: .8s;
 
                 h1 {
                     color: #FFF;
@@ -41,6 +43,8 @@
             }
 
             .form-box {
+                position: absolute;
+                right: 0;
                 width: 600px;
                 flex: none;
                 padding-inline: 64px;
@@ -54,7 +58,7 @@
                     margin-top: 24px;
                     height: max-content;
                     margin-bottom: 0;
-                    color: rgba(0, 212, 255, 1);
+                    color: black(0, 212, 255, 1);
 
                 }
 
@@ -70,6 +74,12 @@
                         padding-inline: 24px;
                         text-transform: uppercase;
                         font-weight: 500;
+                    }
+
+                    .btn-criar-conta {
+                        cursor: pointer;
+                        color: blue;
+                        text-decoration: underline;
                     }
                 }
             }

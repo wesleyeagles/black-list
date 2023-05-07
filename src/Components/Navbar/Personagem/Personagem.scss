@@ -1,0 +1,41 @@
+@import "/src/Style/Functions.scss";
+
+.form-grid {
+	display: grid;
+	grid-template-columns: repeat(14, 1fr);
+	grid-template-rows: repeat(3, auto);
+	grid-template-areas:
+		"#{gridSpanArea("nickname", 9)} #{gridSpanArea("level", 5)}"
+        "#{gridSpanArea("race", 7)} #{gridSpanArea("classe", 7)}"
+        "#{gridSpanArea("cpt", 9)} #{gridSpanArea("status", 2)} #{gridSpanArea("abertura", 3)}";
+
+    column-gap: 0.8rem;
+    row-gap: 0.5rem;
+
+    .nickname {
+        grid-area: nickname;
+    }
+
+    .level {
+        grid-area: level;
+    }
+
+    .race {
+        grid-area: race;
+    }
+
+    .classe {
+        grid-area: classe;
+    }
+
+    .cpt {
+        grid-area: cpt;
+    }
+    .status {
+        grid-area: status;
+    }
+
+    .abertura {
+        grid-area: abertura;
+    }
+}

@@ -1,11 +1,13 @@
 import "react-toastify/dist/ReactToastify.css";
 import "./Form.scss";
 import { useEffect, useState } from "react";
-import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
-import { Button, Carousel, ToastContainer } from "react-bootstrap";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Carousel, ToastContainer } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useAuthenticated } from "../Authentication/Login/Lib/Hooks/useAuthenticated";
 import { toast } from "react-toastify";
+import Navbar from "../../Components/Navbar/Navbar";
+import Footer from "../../Components/Footer/Footer";
 // Mutations
 
 const Main = () => {
@@ -40,9 +42,9 @@ const Main = () => {
 		}
 		if (location.pathname === "/") {
 			setPage(0);
-		} else if (location.pathname === "/criar-membro") {
-			setPage(1);
 		} else if (location.pathname === "/membros") {
+			setPage(1);
+		} else if (location.pathname === "/pontos") {
 			setPage(2);
 		}
 	}, [location]);
@@ -58,27 +60,7 @@ const Main = () => {
 				}}
 			/>
 			<div className="main">
-				<div className="header">
-					<div className="navigation">
-						<Link className={`${page === 0 ? "selected-link" : null}`} to="/">
-							Inicio
-						</Link>
-						<Link className={`${page === 1 ? "selected-link" : null}`} to="/criar-membro">
-							Cadastrar membro
-						</Link>
-						<Link className={`${page === 2 ? "selected-link" : null}`} to="/membros">
-							Ver membros
-						</Link>
-						<Button
-							onClick={() => {
-								localStorage.clear();
-								navigate("/login");
-							}}
-						>
-							Logout
-						</Button>
-					</div>
-				</div>
+				<Navbar setPage={setPage} page={page} />
 				<>
 					{urlState ? (
 						<div className="inicio">
@@ -184,11 +166,11 @@ const Main = () => {
 					<iframe
 						src="https://discord.com/widget?id=1032261789821444116&theme=dark&disableCache=1"
 						width="350"
-						height="740"
+						height="630"
 						sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
 					></iframe>
 				</div>
-				<div className="footer">Em Desenvolvimento</div>
+				<Footer setPage={setPage} page={page} />
 			</div>
 		</div>
 	);
