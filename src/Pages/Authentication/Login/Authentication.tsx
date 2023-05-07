@@ -13,7 +13,7 @@ const Authentication = () => {
 	const [page, setPage] = useState(true);
 
 	const { x } = useSpring({
-		x: !page ? -400 : 0,
+		x: !page ? -300 : 0,
 	});
 
 	useEffect(() => {
