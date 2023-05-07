@@ -6,7 +6,7 @@ export const useLogin = gql`
 			id
 			login
 			password
-			member {
+			members {
 				nickname
 			}
 		}
