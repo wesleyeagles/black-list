@@ -23,7 +23,7 @@ const Navbar = ({ page, setPage }: INavbarProps) => {
 				<div className="navigation">
 					<div className="rf-logo">
 						<Link to="/">
-							<img src="/public/rf-online-logo.png" />
+							<img src="./rf-online-logo.png" />
 						</Link>
 					</div>
 					<div className="links">

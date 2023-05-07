@@ -225,7 +225,7 @@ const labelRace = ({ image, label }: ILabelProps) => {
 	return (
 		<div className="d-flex align-items-center gap-1">
 			<div>
-				<img src={`./public/${image}`} alt={label} width={20} height={20} />
+				<img src={`./${image}`} alt={label} width={20} height={20} />
 			</div>
 			<div>{label}</div>
 		</div>
@@ -271,7 +271,7 @@ const label = ({ image, label }: ILabelProps) => {
 	return (
 		<div className="d-flex align-items-center gap-1">
 			<div>
-				<img src={`./public/${image}.gif`} alt={label} width={30} height={30} />
+				<img src={`./${image}.gif`} alt={label} width={30} height={30} />
 			</div>
 			<div>{label}</div>
 		</div>
