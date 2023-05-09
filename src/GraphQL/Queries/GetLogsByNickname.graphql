@@ -1,0 +1,9 @@
+query GetLogsByNickname($nickname: String!) {
+  logPontos(where: {nickname: $nickname}) {
+    ponto
+    mensagem
+    nickname
+    idAcao
+    createdAt
+  }
+}

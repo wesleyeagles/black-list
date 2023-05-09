@@ -1,0 +1,10 @@
+mutation CreateLogPonto($ponto: Float!, $idAcao: Int!, $Mensagem: String, $nickname: String!) {
+  createLogPonto(
+    data: {nickname: $nickname, ponto: $ponto, idAcao: $idAcao, clhfpahgb0o0s01ufahun76os: {connect: {nickname: $nickname}}, mensagem: $Mensagem}
+  ) {
+    id
+  }
+  publishManyLogPontos(where: {nickname: $nickname}) {
+    count
+  }
+}

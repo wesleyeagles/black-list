@@ -1,0 +1,9 @@
+query GetLogPontos {
+  logPontos (first: 5, orderBy: createdAt_DESC) {
+    nickname
+    idAcao
+    mensagem
+    createdAt
+    ponto
+  }
+}

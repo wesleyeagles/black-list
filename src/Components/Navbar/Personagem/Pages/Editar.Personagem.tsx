@@ -4,7 +4,7 @@ import useUserInfo from "../../../../Hooks/useUserInfo";
 import { PersonagemHandleSubmitValues } from "../Hooks/usePersonagemForm";
 import { toast } from "react-toastify";
 import { removeEqualObject } from "../../../../Utils/Utils";
-import { GetMemberByNicknameDocument, useEditMemberMutation, useGetMemberByNicknameLazyQuery } from "../../../../GraphQL/generated";
+import { GetMemberByNicknameDocument, TopThreePontosDocument, useEditMemberMutation, useGetMemberByNicknameLazyQuery } from "../../../../GraphQL/generated";
 import { useState, useEffect } from "react";
 
 interface IPersonagemProps {
@@ -20,14 +20,16 @@ const EditaPersonagem = ({ show, setShow }: IPersonagemProps) => {
 
 	useEffect(() => {
 		if (userData) {
-			getMember({
-				variables: {
-					nickname: userData.account.members[0].nickname,
-				},
-				onCompleted: (res) => {
-					setData(res);
-				},
-			});
+			if (userData.account.members[0]) {
+				getMember({
+					variables: {
+						nickname: userData.account.members[0].nickname,
+					},
+					onCompleted: (res) => {
+						setData(res);
+					},
+				});
+			}
 		}
 	}, [userData, data]);
 
@@ -71,6 +73,9 @@ const EditaPersonagem = ({ show, setShow }: IPersonagemProps) => {
 						variables: {
 							nickname: data.nickname,
 						},
+					},
+					{
+						query: TopThreePontosDocument,
 					},
 				],
 				variables: {

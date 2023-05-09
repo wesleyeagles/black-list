@@ -1328,6 +1328,554 @@ export type LocationInput = {
   longitude: Scalars['Float'];
 };
 
+export type LogPonto = Node & {
+  __typename?: 'LogPonto';
+  /** The time the document was created */
+  createdAt: Scalars['DateTime'];
+  /** User that created this document */
+  createdBy?: Maybe<User>;
+  /** Get the document in other stages */
+  documentInStages: Array<LogPonto>;
+  /** List of LogPonto versions */
+  history: Array<Version>;
+  /** The unique identifier */
+  id: Scalars['ID'];
+  idAcao: Scalars['Int'];
+  mensagem?: Maybe<Scalars['String']>;
+  nickname: Scalars['String'];
+  ponto: Scalars['Float'];
+  /** The time the document was published. Null on documents in draft stage. */
+  publishedAt?: Maybe<Scalars['DateTime']>;
+  /** User that last published this document */
+  publishedBy?: Maybe<User>;
+  scheduledIn: Array<ScheduledOperation>;
+  /** System stage field */
+  stage: Stage;
+  /** The time the document was updated */
+  updatedAt: Scalars['DateTime'];
+  /** User that last updated this document */
+  updatedBy?: Maybe<User>;
+};
+
+
+export type LogPontoCreatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+
+export type LogPontoDocumentInStagesArgs = {
+  includeCurrent?: Scalars['Boolean'];
+  inheritLocale?: Scalars['Boolean'];
+  stages?: Array<Stage>;
+};
+
+
+export type LogPontoHistoryArgs = {
+  limit?: Scalars['Int'];
+  skip?: Scalars['Int'];
+  stageOverride?: InputMaybe<Stage>;
+};
+
+
+export type LogPontoPublishedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+
+export type LogPontoScheduledInArgs = {
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
+  last?: InputMaybe<Scalars['Int']>;
+  locales?: InputMaybe<Array<Locale>>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<ScheduledOperationWhereInput>;
+};
+
+
+export type LogPontoUpdatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+export type LogPontoConnectInput = {
+  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
+  position?: InputMaybe<ConnectPositionInput>;
+  /** Document to connect */
+  where: LogPontoWhereUniqueInput;
+};
+
+/** A connection to a list of items. */
+export type LogPontoConnection = {
+  __typename?: 'LogPontoConnection';
+  aggregate: Aggregate;
+  /** A list of edges. */
+  edges: Array<LogPontoEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+};
+
+export type LogPontoCreateInput = {
+  clhfpahgb0o0s01ufahun76os?: InputMaybe<MemberCreateManyInlineInput>;
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  idAcao: Scalars['Int'];
+  mensagem?: InputMaybe<Scalars['String']>;
+  nickname: Scalars['String'];
+  ponto: Scalars['Float'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type LogPontoCreateManyInlineInput = {
+  /** Connect multiple existing LogPonto documents */
+  connect?: InputMaybe<Array<LogPontoWhereUniqueInput>>;
+  /** Create and connect multiple existing LogPonto documents */
+  create?: InputMaybe<Array<LogPontoCreateInput>>;
+};
+
+export type LogPontoCreateOneInlineInput = {
+  /** Connect one existing LogPonto document */
+  connect?: InputMaybe<LogPontoWhereUniqueInput>;
+  /** Create and connect one LogPonto document */
+  create?: InputMaybe<LogPontoCreateInput>;
+};
+
+/** An edge in a connection. */
+export type LogPontoEdge = {
+  __typename?: 'LogPontoEdge';
+  /** A cursor for use in pagination. */
+  cursor: Scalars['String'];
+  /** The item at the end of the edge. */
+  node: LogPonto;
+};
+
+/** Identifies documents */
+export type LogPontoManyWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<LogPontoWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<LogPontoWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<LogPontoWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  _search?: InputMaybe<Scalars['String']>;
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  /** All values less than the given value. */
+  createdAt_lt?: InputMaybe<Scalars['DateTime']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: InputMaybe<Scalars['DateTime']>;
+  /** Any other value that exists and is not equal to the given value. */
+  createdAt_not?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  createdBy?: InputMaybe<UserWhereInput>;
+  documentInStages_every?: InputMaybe<LogPontoWhereStageInput>;
+  documentInStages_none?: InputMaybe<LogPontoWhereStageInput>;
+  documentInStages_some?: InputMaybe<LogPontoWhereStageInput>;
+  id?: InputMaybe<Scalars['ID']>;
+  idAcao?: InputMaybe<Scalars['Int']>;
+  /** All values greater than the given value. */
+  idAcao_gt?: InputMaybe<Scalars['Int']>;
+  /** All values greater than or equal the given value. */
+  idAcao_gte?: InputMaybe<Scalars['Int']>;
+  /** All values that are contained in given list. */
+  idAcao_in?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  /** All values less than the given value. */
+  idAcao_lt?: InputMaybe<Scalars['Int']>;
+  /** All values less than or equal the given value. */
+  idAcao_lte?: InputMaybe<Scalars['Int']>;
+  /** Any other value that exists and is not equal to the given value. */
+  idAcao_not?: InputMaybe<Scalars['Int']>;
+  /** All values that are not contained in given list. */
+  idAcao_not_in?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  /** All values containing the given string. */
+  id_contains?: InputMaybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  id_ends_with?: InputMaybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  id_not?: InputMaybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  id_not_contains?: InputMaybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: InputMaybe<Scalars['ID']>;
+  /** All values that are not contained in given list. */
+  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: InputMaybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  id_starts_with?: InputMaybe<Scalars['ID']>;
+  mensagem?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  mensagem_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  mensagem_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  mensagem_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  mensagem_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  mensagem_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  mensagem_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  mensagem_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  mensagem_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  mensagem_starts_with?: InputMaybe<Scalars['String']>;
+  nickname?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  nickname_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  nickname_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  nickname_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  nickname_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  nickname_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  nickname_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  nickname_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  nickname_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  nickname_starts_with?: InputMaybe<Scalars['String']>;
+  ponto?: InputMaybe<Scalars['Float']>;
+  /** All values greater than the given value. */
+  ponto_gt?: InputMaybe<Scalars['Float']>;
+  /** All values greater than or equal the given value. */
+  ponto_gte?: InputMaybe<Scalars['Float']>;
+  /** All values that are contained in given list. */
+  ponto_in?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
+  /** All values less than the given value. */
+  ponto_lt?: InputMaybe<Scalars['Float']>;
+  /** All values less than or equal the given value. */
+  ponto_lte?: InputMaybe<Scalars['Float']>;
+  /** Any other value that exists and is not equal to the given value. */
+  ponto_not?: InputMaybe<Scalars['Float']>;
+  /** All values that are not contained in given list. */
+  ponto_not_in?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: InputMaybe<Scalars['DateTime']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: InputMaybe<Scalars['DateTime']>;
+  /** Any other value that exists and is not equal to the given value. */
+  publishedAt_not?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  publishedBy?: InputMaybe<UserWhereInput>;
+  scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: InputMaybe<Scalars['DateTime']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: InputMaybe<Scalars['DateTime']>;
+  /** Any other value that exists and is not equal to the given value. */
+  updatedAt_not?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  updatedBy?: InputMaybe<UserWhereInput>;
+};
+
+export enum LogPontoOrderByInput {
+  CreatedAtAsc = 'createdAt_ASC',
+  CreatedAtDesc = 'createdAt_DESC',
+  IdAcaoAsc = 'idAcao_ASC',
+  IdAcaoDesc = 'idAcao_DESC',
+  IdAsc = 'id_ASC',
+  IdDesc = 'id_DESC',
+  MensagemAsc = 'mensagem_ASC',
+  MensagemDesc = 'mensagem_DESC',
+  NicknameAsc = 'nickname_ASC',
+  NicknameDesc = 'nickname_DESC',
+  PontoAsc = 'ponto_ASC',
+  PontoDesc = 'ponto_DESC',
+  PublishedAtAsc = 'publishedAt_ASC',
+  PublishedAtDesc = 'publishedAt_DESC',
+  UpdatedAtAsc = 'updatedAt_ASC',
+  UpdatedAtDesc = 'updatedAt_DESC'
+}
+
+export type LogPontoUpdateInput = {
+  clhfpahgb0o0s01ufahun76os?: InputMaybe<MemberUpdateManyInlineInput>;
+  idAcao?: InputMaybe<Scalars['Int']>;
+  mensagem?: InputMaybe<Scalars['String']>;
+  nickname?: InputMaybe<Scalars['String']>;
+  ponto?: InputMaybe<Scalars['Float']>;
+};
+
+export type LogPontoUpdateManyInlineInput = {
+  /** Connect multiple existing LogPonto documents */
+  connect?: InputMaybe<Array<LogPontoConnectInput>>;
+  /** Create and connect multiple LogPonto documents */
+  create?: InputMaybe<Array<LogPontoCreateInput>>;
+  /** Delete multiple LogPonto documents */
+  delete?: InputMaybe<Array<LogPontoWhereUniqueInput>>;
+  /** Disconnect multiple LogPonto documents */
+  disconnect?: InputMaybe<Array<LogPontoWhereUniqueInput>>;
+  /** Override currently-connected documents with multiple existing LogPonto documents */
+  set?: InputMaybe<Array<LogPontoWhereUniqueInput>>;
+  /** Update multiple LogPonto documents */
+  update?: InputMaybe<Array<LogPontoUpdateWithNestedWhereUniqueInput>>;
+  /** Upsert multiple LogPonto documents */
+  upsert?: InputMaybe<Array<LogPontoUpsertWithNestedWhereUniqueInput>>;
+};
+
+export type LogPontoUpdateManyInput = {
+  idAcao?: InputMaybe<Scalars['Int']>;
+  mensagem?: InputMaybe<Scalars['String']>;
+  nickname?: InputMaybe<Scalars['String']>;
+  ponto?: InputMaybe<Scalars['Float']>;
+};
+
+export type LogPontoUpdateManyWithNestedWhereInput = {
+  /** Update many input */
+  data: LogPontoUpdateManyInput;
+  /** Document search */
+  where: LogPontoWhereInput;
+};
+
+export type LogPontoUpdateOneInlineInput = {
+  /** Connect existing LogPonto document */
+  connect?: InputMaybe<LogPontoWhereUniqueInput>;
+  /** Create and connect one LogPonto document */
+  create?: InputMaybe<LogPontoCreateInput>;
+  /** Delete currently connected LogPonto document */
+  delete?: InputMaybe<Scalars['Boolean']>;
+  /** Disconnect currently connected LogPonto document */
+  disconnect?: InputMaybe<Scalars['Boolean']>;
+  /** Update single LogPonto document */
+  update?: InputMaybe<LogPontoUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single LogPonto document */
+  upsert?: InputMaybe<LogPontoUpsertWithNestedWhereUniqueInput>;
+};
+
+export type LogPontoUpdateWithNestedWhereUniqueInput = {
+  /** Document to update */
+  data: LogPontoUpdateInput;
+  /** Unique document search */
+  where: LogPontoWhereUniqueInput;
+};
+
+export type LogPontoUpsertInput = {
+  /** Create document if it didn't exist */
+  create: LogPontoCreateInput;
+  /** Update document if it exists */
+  update: LogPontoUpdateInput;
+};
+
+export type LogPontoUpsertWithNestedWhereUniqueInput = {
+  /** Upsert data */
+  data: LogPontoUpsertInput;
+  /** Unique document search */
+  where: LogPontoWhereUniqueInput;
+};
+
+/** This contains a set of filters that can be used to compare values internally */
+export type LogPontoWhereComparatorInput = {
+  /** This field can be used to request to check if the entry is outdated by internal comparison */
+  outdated_to?: InputMaybe<Scalars['Boolean']>;
+};
+
+/** Identifies documents */
+export type LogPontoWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<LogPontoWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<LogPontoWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<LogPontoWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  _search?: InputMaybe<Scalars['String']>;
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  /** All values less than the given value. */
+  createdAt_lt?: InputMaybe<Scalars['DateTime']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: InputMaybe<Scalars['DateTime']>;
+  /** Any other value that exists and is not equal to the given value. */
+  createdAt_not?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  createdBy?: InputMaybe<UserWhereInput>;
+  documentInStages_every?: InputMaybe<LogPontoWhereStageInput>;
+  documentInStages_none?: InputMaybe<LogPontoWhereStageInput>;
+  documentInStages_some?: InputMaybe<LogPontoWhereStageInput>;
+  id?: InputMaybe<Scalars['ID']>;
+  idAcao?: InputMaybe<Scalars['Int']>;
+  /** All values greater than the given value. */
+  idAcao_gt?: InputMaybe<Scalars['Int']>;
+  /** All values greater than or equal the given value. */
+  idAcao_gte?: InputMaybe<Scalars['Int']>;
+  /** All values that are contained in given list. */
+  idAcao_in?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  /** All values less than the given value. */
+  idAcao_lt?: InputMaybe<Scalars['Int']>;
+  /** All values less than or equal the given value. */
+  idAcao_lte?: InputMaybe<Scalars['Int']>;
+  /** Any other value that exists and is not equal to the given value. */
+  idAcao_not?: InputMaybe<Scalars['Int']>;
+  /** All values that are not contained in given list. */
+  idAcao_not_in?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  /** All values containing the given string. */
+  id_contains?: InputMaybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  id_ends_with?: InputMaybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  id_not?: InputMaybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  id_not_contains?: InputMaybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: InputMaybe<Scalars['ID']>;
+  /** All values that are not contained in given list. */
+  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: InputMaybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  id_starts_with?: InputMaybe<Scalars['ID']>;
+  mensagem?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  mensagem_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  mensagem_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  mensagem_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  mensagem_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  mensagem_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  mensagem_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  mensagem_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  mensagem_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  mensagem_starts_with?: InputMaybe<Scalars['String']>;
+  nickname?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  nickname_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  nickname_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  nickname_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  nickname_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  nickname_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  nickname_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  nickname_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  nickname_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  nickname_starts_with?: InputMaybe<Scalars['String']>;
+  ponto?: InputMaybe<Scalars['Float']>;
+  /** All values greater than the given value. */
+  ponto_gt?: InputMaybe<Scalars['Float']>;
+  /** All values greater than or equal the given value. */
+  ponto_gte?: InputMaybe<Scalars['Float']>;
+  /** All values that are contained in given list. */
+  ponto_in?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
+  /** All values less than the given value. */
+  ponto_lt?: InputMaybe<Scalars['Float']>;
+  /** All values less than or equal the given value. */
+  ponto_lte?: InputMaybe<Scalars['Float']>;
+  /** Any other value that exists and is not equal to the given value. */
+  ponto_not?: InputMaybe<Scalars['Float']>;
+  /** All values that are not contained in given list. */
+  ponto_not_in?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: InputMaybe<Scalars['DateTime']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: InputMaybe<Scalars['DateTime']>;
+  /** Any other value that exists and is not equal to the given value. */
+  publishedAt_not?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  publishedBy?: InputMaybe<UserWhereInput>;
+  scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: InputMaybe<Scalars['DateTime']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: InputMaybe<Scalars['DateTime']>;
+  /** Any other value that exists and is not equal to the given value. */
+  updatedAt_not?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  updatedBy?: InputMaybe<UserWhereInput>;
+};
+
+/** The document in stages filter allows specifying a stage entry to cross compare the same document between different stages */
+export type LogPontoWhereStageInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<LogPontoWhereStageInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<LogPontoWhereStageInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<LogPontoWhereStageInput>>;
+  /** This field contains fields which can be set as true or false to specify an internal comparison */
+  compareWithParent?: InputMaybe<LogPontoWhereComparatorInput>;
+  /** Specify the stage to compare with */
+  stage?: InputMaybe<Stage>;
+};
+
+/** References LogPonto record uniquely */
+export type LogPontoWhereUniqueInput = {
+  id?: InputMaybe<Scalars['ID']>;
+};
+
 export type Member = Node & {
   __typename?: 'Member';
   cargo: Scalars['String'];
@@ -1345,6 +1893,7 @@ export type Member = Node & {
   idClass: Scalars['Int'];
   idRace: Scalars['Int'];
   level: Scalars['Int'];
+  logPontos: Array<LogPonto>;
   memberStatus: Scalars['Boolean'];
   nickname: Scalars['String'];
   playOnOpen: Scalars['Boolean'];
@@ -1380,6 +1929,19 @@ export type MemberHistoryArgs = {
   limit?: Scalars['Int'];
   skip?: Scalars['Int'];
   stageOverride?: InputMaybe<Stage>;
+};
+
+
+export type MemberLogPontosArgs = {
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
+  last?: InputMaybe<Scalars['Int']>;
+  locales?: InputMaybe<Array<Locale>>;
+  orderBy?: InputMaybe<LogPontoOrderByInput>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<LogPontoWhereInput>;
 };
 
 
@@ -1431,6 +1993,7 @@ export type MemberCreateInput = {
   idClass: Scalars['Int'];
   idRace: Scalars['Int'];
   level: Scalars['Int'];
+  logPontos?: InputMaybe<LogPontoCreateManyInlineInput>;
   memberStatus: Scalars['Boolean'];
   nickname: Scalars['String'];
   playOnOpen: Scalars['Boolean'];
@@ -1588,6 +2151,9 @@ export type MemberManyWhereInput = {
   level_not?: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
   level_not_in?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  logPontos_every?: InputMaybe<LogPontoWhereInput>;
+  logPontos_none?: InputMaybe<LogPontoWhereInput>;
+  logPontos_some?: InputMaybe<LogPontoWhereInput>;
   memberStatus?: InputMaybe<Scalars['Boolean']>;
   /** Any other value that exists and is not equal to the given value. */
   memberStatus_not?: InputMaybe<Scalars['Boolean']>;
@@ -1701,6 +2267,7 @@ export type MemberUpdateInput = {
   idClass?: InputMaybe<Scalars['Int']>;
   idRace?: InputMaybe<Scalars['Int']>;
   level?: InputMaybe<Scalars['Int']>;
+  logPontos?: InputMaybe<LogPontoUpdateManyInlineInput>;
   memberStatus?: InputMaybe<Scalars['Boolean']>;
   nickname?: InputMaybe<Scalars['String']>;
   playOnOpen?: InputMaybe<Scalars['Boolean']>;
@@ -1911,6 +2478,9 @@ export type MemberWhereInput = {
   level_not?: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
   level_not_in?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  logPontos_every?: InputMaybe<LogPontoWhereInput>;
+  logPontos_none?: InputMaybe<LogPontoWhereInput>;
+  logPontos_some?: InputMaybe<LogPontoWhereInput>;
   memberStatus?: InputMaybe<Scalars['Boolean']>;
   /** Any other value that exists and is not equal to the given value. */
   memberStatus_not?: InputMaybe<Scalars['Boolean']>;
@@ -2017,6 +2587,8 @@ export type Mutation = {
    * @deprecated Asset mutations will be overhauled soon
    */
   createAsset?: Maybe<Asset>;
+  /** Create one logPonto */
+  createLogPonto?: Maybe<LogPonto>;
   /** Create one member */
   createMember?: Maybe<Member>;
   /** Create one scheduledRelease */
@@ -2025,6 +2597,8 @@ export type Mutation = {
   deleteAccount?: Maybe<Account>;
   /** Delete one asset from _all_ existing stages. Returns deleted document. */
   deleteAsset?: Maybe<Asset>;
+  /** Delete one logPonto from _all_ existing stages. Returns deleted document. */
+  deleteLogPonto?: Maybe<LogPonto>;
   /**
    * Delete many Account documents
    * @deprecated Please use the new paginated many mutation (deleteManyAccountsConnection)
@@ -2039,6 +2613,13 @@ export type Mutation = {
   deleteManyAssets: BatchPayload;
   /** Delete many Asset documents, return deleted documents */
   deleteManyAssetsConnection: AssetConnection;
+  /**
+   * Delete many LogPonto documents
+   * @deprecated Please use the new paginated many mutation (deleteManyLogPontosConnection)
+   */
+  deleteManyLogPontos: BatchPayload;
+  /** Delete many LogPonto documents, return deleted documents */
+  deleteManyLogPontosConnection: LogPontoConnection;
   /**
    * Delete many Member documents
    * @deprecated Please use the new paginated many mutation (deleteManyMembersConnection)
@@ -2056,6 +2637,8 @@ export type Mutation = {
   publishAccount?: Maybe<Account>;
   /** Publish one asset */
   publishAsset?: Maybe<Asset>;
+  /** Publish one logPonto */
+  publishLogPonto?: Maybe<LogPonto>;
   /**
    * Publish many Account documents
    * @deprecated Please use the new paginated many mutation (publishManyAccountsConnection)
@@ -2071,6 +2654,13 @@ export type Mutation = {
   /** Publish many Asset documents */
   publishManyAssetsConnection: AssetConnection;
   /**
+   * Publish many LogPonto documents
+   * @deprecated Please use the new paginated many mutation (publishManyLogPontosConnection)
+   */
+  publishManyLogPontos: BatchPayload;
+  /** Publish many LogPonto documents */
+  publishManyLogPontosConnection: LogPontoConnection;
+  /**
    * Publish many Member documents
    * @deprecated Please use the new paginated many mutation (publishManyMembersConnection)
    */
@@ -2083,18 +2673,24 @@ export type Mutation = {
   schedulePublishAccount?: Maybe<Account>;
   /** Schedule to publish one asset */
   schedulePublishAsset?: Maybe<Asset>;
+  /** Schedule to publish one logPonto */
+  schedulePublishLogPonto?: Maybe<LogPonto>;
   /** Schedule to publish one member */
   schedulePublishMember?: Maybe<Member>;
   /** Unpublish one account from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   scheduleUnpublishAccount?: Maybe<Account>;
   /** Unpublish one asset from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   scheduleUnpublishAsset?: Maybe<Asset>;
+  /** Unpublish one logPonto from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
+  scheduleUnpublishLogPonto?: Maybe<LogPonto>;
   /** Unpublish one member from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   scheduleUnpublishMember?: Maybe<Member>;
   /** Unpublish one account from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   unpublishAccount?: Maybe<Account>;
   /** Unpublish one asset from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   unpublishAsset?: Maybe<Asset>;
+  /** Unpublish one logPonto from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
+  unpublishLogPonto?: Maybe<LogPonto>;
   /**
    * Unpublish many Account documents
    * @deprecated Please use the new paginated many mutation (unpublishManyAccountsConnection)
@@ -2110,6 +2706,13 @@ export type Mutation = {
   /** Find many Asset documents that match criteria in specified stage and unpublish from target stages */
   unpublishManyAssetsConnection: AssetConnection;
   /**
+   * Unpublish many LogPonto documents
+   * @deprecated Please use the new paginated many mutation (unpublishManyLogPontosConnection)
+   */
+  unpublishManyLogPontos: BatchPayload;
+  /** Find many LogPonto documents that match criteria in specified stage and unpublish from target stages */
+  unpublishManyLogPontosConnection: LogPontoConnection;
+  /**
    * Unpublish many Member documents
    * @deprecated Please use the new paginated many mutation (unpublishManyMembersConnection)
    */
@@ -2122,6 +2725,8 @@ export type Mutation = {
   updateAccount?: Maybe<Account>;
   /** Update one asset */
   updateAsset?: Maybe<Asset>;
+  /** Update one logPonto */
+  updateLogPonto?: Maybe<LogPonto>;
   /**
    * Update many accounts
    * @deprecated Please use the new paginated many mutation (updateManyAccountsConnection)
@@ -2137,6 +2742,13 @@ export type Mutation = {
   /** Update many Asset documents */
   updateManyAssetsConnection: AssetConnection;
   /**
+   * Update many logPontos
+   * @deprecated Please use the new paginated many mutation (updateManyLogPontosConnection)
+   */
+  updateManyLogPontos: BatchPayload;
+  /** Update many LogPonto documents */
+  updateManyLogPontosConnection: LogPontoConnection;
+  /**
    * Update many members
    * @deprecated Please use the new paginated many mutation (updateManyMembersConnection)
    */
@@ -2151,6 +2763,8 @@ export type Mutation = {
   upsertAccount?: Maybe<Account>;
   /** Upsert one asset */
   upsertAsset?: Maybe<Asset>;
+  /** Upsert one logPonto */
+  upsertLogPonto?: Maybe<LogPonto>;
   /** Upsert one member */
   upsertMember?: Maybe<Member>;
 };
@@ -2163,6 +2777,11 @@ export type MutationCreateAccountArgs = {
 
 export type MutationCreateAssetArgs = {
   data: AssetCreateInput;
+};
+
+
+export type MutationCreateLogPontoArgs = {
+  data: LogPontoCreateInput;
 };
 
 
@@ -2183,6 +2802,11 @@ export type MutationDeleteAccountArgs = {
 
 export type MutationDeleteAssetArgs = {
   where: AssetWhereUniqueInput;
+};
+
+
+export type MutationDeleteLogPontoArgs = {
+  where: LogPontoWhereUniqueInput;
 };
 
 
@@ -2213,6 +2837,21 @@ export type MutationDeleteManyAssetsConnectionArgs = {
   last?: InputMaybe<Scalars['Int']>;
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<AssetManyWhereInput>;
+};
+
+
+export type MutationDeleteManyLogPontosArgs = {
+  where?: InputMaybe<LogPontoManyWhereInput>;
+};
+
+
+export type MutationDeleteManyLogPontosConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']>;
+  before?: InputMaybe<Scalars['ID']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<LogPontoManyWhereInput>;
 };
 
 
@@ -2261,6 +2900,12 @@ export type MutationPublishAssetArgs = {
 };
 
 
+export type MutationPublishLogPontoArgs = {
+  to?: Array<Stage>;
+  where: LogPontoWhereUniqueInput;
+};
+
+
 export type MutationPublishManyAccountsArgs = {
   to?: Array<Stage>;
   where?: InputMaybe<AccountManyWhereInput>;
@@ -2300,6 +2945,24 @@ export type MutationPublishManyAssetsConnectionArgs = {
   to?: Array<Stage>;
   where?: InputMaybe<AssetManyWhereInput>;
   withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
+};
+
+
+export type MutationPublishManyLogPontosArgs = {
+  to?: Array<Stage>;
+  where?: InputMaybe<LogPontoManyWhereInput>;
+};
+
+
+export type MutationPublishManyLogPontosConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']>;
+  before?: InputMaybe<Scalars['ID']>;
+  first?: InputMaybe<Scalars['Int']>;
+  from?: InputMaybe<Stage>;
+  last?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+  to?: Array<Stage>;
+  where?: InputMaybe<LogPontoManyWhereInput>;
 };
 
 
@@ -2346,6 +3009,14 @@ export type MutationSchedulePublishAssetArgs = {
 };
 
 
+export type MutationSchedulePublishLogPontoArgs = {
+  releaseAt?: InputMaybe<Scalars['DateTime']>;
+  releaseId?: InputMaybe<Scalars['String']>;
+  to?: Array<Stage>;
+  where: LogPontoWhereUniqueInput;
+};
+
+
 export type MutationSchedulePublishMemberArgs = {
   releaseAt?: InputMaybe<Scalars['DateTime']>;
   releaseId?: InputMaybe<Scalars['String']>;
@@ -2372,6 +3043,14 @@ export type MutationScheduleUnpublishAssetArgs = {
 };
 
 
+export type MutationScheduleUnpublishLogPontoArgs = {
+  from?: Array<Stage>;
+  releaseAt?: InputMaybe<Scalars['DateTime']>;
+  releaseId?: InputMaybe<Scalars['String']>;
+  where: LogPontoWhereUniqueInput;
+};
+
+
 export type MutationScheduleUnpublishMemberArgs = {
   from?: Array<Stage>;
   releaseAt?: InputMaybe<Scalars['DateTime']>;
@@ -2391,6 +3070,12 @@ export type MutationUnpublishAssetArgs = {
   locales?: InputMaybe<Array<Locale>>;
   unpublishBase?: InputMaybe<Scalars['Boolean']>;
   where: AssetWhereUniqueInput;
+};
+
+
+export type MutationUnpublishLogPontoArgs = {
+  from?: Array<Stage>;
+  where: LogPontoWhereUniqueInput;
 };
 
 
@@ -2434,6 +3119,24 @@ export type MutationUnpublishManyAssetsConnectionArgs = {
 };
 
 
+export type MutationUnpublishManyLogPontosArgs = {
+  from?: Array<Stage>;
+  where?: InputMaybe<LogPontoManyWhereInput>;
+};
+
+
+export type MutationUnpublishManyLogPontosConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']>;
+  before?: InputMaybe<Scalars['ID']>;
+  first?: InputMaybe<Scalars['Int']>;
+  from?: Array<Stage>;
+  last?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+  stage?: InputMaybe<Stage>;
+  where?: InputMaybe<LogPontoManyWhereInput>;
+};
+
+
 export type MutationUnpublishManyMembersArgs = {
   from?: Array<Stage>;
   where?: InputMaybe<MemberManyWhereInput>;
@@ -2470,6 +3173,12 @@ export type MutationUpdateAssetArgs = {
 };
 
 
+export type MutationUpdateLogPontoArgs = {
+  data: LogPontoUpdateInput;
+  where: LogPontoWhereUniqueInput;
+};
+
+
 export type MutationUpdateManyAccountsArgs = {
   data: AccountUpdateManyInput;
   where?: InputMaybe<AccountManyWhereInput>;
@@ -2501,6 +3210,23 @@ export type MutationUpdateManyAssetsConnectionArgs = {
   last?: InputMaybe<Scalars['Int']>;
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<AssetManyWhereInput>;
+};
+
+
+export type MutationUpdateManyLogPontosArgs = {
+  data: LogPontoUpdateManyInput;
+  where?: InputMaybe<LogPontoManyWhereInput>;
+};
+
+
+export type MutationUpdateManyLogPontosConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']>;
+  before?: InputMaybe<Scalars['ID']>;
+  data: LogPontoUpdateManyInput;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<LogPontoManyWhereInput>;
 };
 
 
@@ -2542,6 +3268,12 @@ export type MutationUpsertAccountArgs = {
 export type MutationUpsertAssetArgs = {
   upsert: AssetUpsertInput;
   where: AssetWhereUniqueInput;
+};
+
+
+export type MutationUpsertLogPontoArgs = {
+  upsert: LogPontoUpsertInput;
+  where: LogPontoWhereUniqueInput;
 };
 
 
@@ -2598,6 +3330,14 @@ export type Query = {
   assets: Array<Asset>;
   /** Retrieve multiple assets using the Relay connection interface */
   assetsConnection: AssetConnection;
+  /** Retrieve a single logPonto */
+  logPonto?: Maybe<LogPonto>;
+  /** Retrieve document version */
+  logPontoVersion?: Maybe<DocumentVersion>;
+  /** Retrieve multiple logPontos */
+  logPontos: Array<LogPonto>;
+  /** Retrieve multiple logPontos using the Relay connection interface */
+  logPontosConnection: LogPontoConnection;
   /** Retrieve a single member */
   member?: Maybe<Member>;
   /** Retrieve document version */
@@ -2702,6 +3442,44 @@ export type QueryAssetsConnectionArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   stage?: Stage;
   where?: InputMaybe<AssetWhereInput>;
+};
+
+
+export type QueryLogPontoArgs = {
+  locales?: Array<Locale>;
+  stage?: Stage;
+  where: LogPontoWhereUniqueInput;
+};
+
+
+export type QueryLogPontoVersionArgs = {
+  where: VersionWhereInput;
+};
+
+
+export type QueryLogPontosArgs = {
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
+  locales?: Array<Locale>;
+  orderBy?: InputMaybe<LogPontoOrderByInput>;
+  skip?: InputMaybe<Scalars['Int']>;
+  stage?: Stage;
+  where?: InputMaybe<LogPontoWhereInput>;
+};
+
+
+export type QueryLogPontosConnectionArgs = {
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
+  locales?: Array<Locale>;
+  orderBy?: InputMaybe<LogPontoOrderByInput>;
+  skip?: InputMaybe<Scalars['Int']>;
+  stage?: Stage;
+  where?: InputMaybe<LogPontoWhereInput>;
 };
 
 
@@ -2960,7 +3738,7 @@ export type ScheduledOperationUpdatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
 
-export type ScheduledOperationAffectedDocument = Account | Asset | Member;
+export type ScheduledOperationAffectedDocument = Account | Asset | LogPonto | Member;
 
 export type ScheduledOperationConnectInput = {
   /** Allow to specify document position in list of connected documents, will default to appending at end of list */
@@ -4406,6 +5184,16 @@ export enum _SystemDateTimeFieldVariation {
   Localization = 'localization'
 }
 
+export type CreateLogPontoMutationVariables = Exact<{
+  ponto: Scalars['Float'];
+  idAcao: Scalars['Int'];
+  Mensagem?: InputMaybe<Scalars['String']>;
+  nickname: Scalars['String'];
+}>;
+
+
+export type CreateLogPontoMutation = { __typename?: 'Mutation', createLogPonto?: { __typename?: 'LogPonto', id: string } | null, publishManyLogPontos: { __typename?: 'BatchPayload', count: any } };
+
 export type CreateMemberMutationVariables = Exact<{
   id: Scalars['ID'];
   nickname: Scalars['String'];
@@ -4429,6 +5217,7 @@ export type EditMemberMutationVariables = Exact<{
   idRace?: InputMaybe<Scalars['Int']>;
   cpt?: InputMaybe<Scalars['Float']>;
   memberStatus?: InputMaybe<Scalars['Boolean']>;
+  pontos?: InputMaybe<Scalars['Float']>;
 }>;
 
 
@@ -4448,6 +5237,18 @@ export type GetAccountByIdQueryVariables = Exact<{
 
 export type GetAccountByIdQuery = { __typename?: 'Query', account?: { __typename?: 'Account', login: string, password: string, id: string, members: Array<{ __typename?: 'Member', id: string, nickname: string, idClass: number, playOnOpen: boolean, cargo: string, pontos?: number | null, level: number, memberStatus: boolean, idRace: number, cpt?: number | null }> } | null };
 
+export type GetLogPontosQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetLogPontosQuery = { __typename?: 'Query', logPontos: Array<{ __typename?: 'LogPonto', nickname: string, idAcao: number, mensagem?: string | null, createdAt: any, ponto: number }> };
+
+export type GetLogsByNicknameQueryVariables = Exact<{
+  nickname: Scalars['String'];
+}>;
+
+
+export type GetLogsByNicknameQuery = { __typename?: 'Query', logPontos: Array<{ __typename?: 'LogPonto', ponto: number, mensagem?: string | null, nickname: string, idAcao: number, createdAt: any }> };
+
 export type GetMemberByNicknameQueryVariables = Exact<{
   nickname: Scalars['String'];
 }>;
@@ -4460,6 +5261,11 @@ export type GetMembersQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetMembersQuery = { __typename?: 'Query', members: Array<{ __typename?: 'Member', id: string, nickname: string, playOnOpen: boolean, cargo: string, pontos?: number | null, level: number, idClass: number }> };
 
+export type TopThreePontosQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type TopThreePontosQuery = { __typename?: 'Query', members: Array<{ __typename?: 'Member', nickname: string, idRace: number, idClass: number, level: number, pontos?: number | null, cpt?: number | null, cargo: string }> };
+
 export type LoginQueryVariables = Exact<{
   login: Scalars['String'];
 }>;
@@ -4468,6 +5274,47 @@ export type LoginQueryVariables = Exact<{
 export type LoginQuery = { __typename?: 'Query', account?: { __typename?: 'Account', id: string, login: string, password: string, members: Array<{ __typename?: 'Member', nickname: string }> } | null };
 
 
+export const CreateLogPontoDocument = gql`
+    mutation CreateLogPonto($ponto: Float!, $idAcao: Int!, $Mensagem: String, $nickname: String!) {
+  createLogPonto(
+    data: {nickname: $nickname, ponto: $ponto, idAcao: $idAcao, clhfpahgb0o0s01ufahun76os: {connect: {nickname: $nickname}}, mensagem: $Mensagem}
+  ) {
+    id
+  }
+  publishManyLogPontos(where: {nickname: $nickname}) {
+    count
+  }
+}
+    `;
+export type CreateLogPontoMutationFn = Apollo.MutationFunction<CreateLogPontoMutation, CreateLogPontoMutationVariables>;
+
+/**
+ * __useCreateLogPontoMutation__
+ *
+ * To run a mutation, you first call `useCreateLogPontoMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateLogPontoMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createLogPontoMutation, { data, loading, error }] = useCreateLogPontoMutation({
+ *   variables: {
+ *      ponto: // value for 'ponto'
+ *      idAcao: // value for 'idAcao'
+ *      Mensagem: // value for 'Mensagem'
+ *      nickname: // value for 'nickname'
+ *   },
+ * });
+ */
+export function useCreateLogPontoMutation(baseOptions?: Apollo.MutationHookOptions<CreateLogPontoMutation, CreateLogPontoMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CreateLogPontoMutation, CreateLogPontoMutationVariables>(CreateLogPontoDocument, options);
+      }
+export type CreateLogPontoMutationHookResult = ReturnType<typeof useCreateLogPontoMutation>;
+export type CreateLogPontoMutationResult = Apollo.MutationResult<CreateLogPontoMutation>;
+export type CreateLogPontoMutationOptions = Apollo.BaseMutationOptions<CreateLogPontoMutation, CreateLogPontoMutationVariables>;
 export const CreateMemberDocument = gql`
     mutation CreateMember($id: ID!, $nickname: String!, $idClass: Int!, $playOnOpen: Boolean!, $level: Int!, $idRace: Int!, $cpt: Float, $memberStatus: Boolean!) {
   updateAccount(
@@ -4515,9 +5362,9 @@ export type CreateMemberMutationHookResult = ReturnType<typeof useCreateMemberMu
 export type CreateMemberMutationResult = Apollo.MutationResult<CreateMemberMutation>;
 export type CreateMemberMutationOptions = Apollo.BaseMutationOptions<CreateMemberMutation, CreateMemberMutationVariables>;
 export const EditMemberDocument = gql`
-    mutation EditMember($id: ID!, $nickname: String, $idClass: Int, $playOnOpen: Boolean, $level: Int, $idRace: Int, $cpt: Float, $memberStatus: Boolean) {
+    mutation EditMember($id: ID!, $nickname: String, $idClass: Int, $playOnOpen: Boolean, $level: Int, $idRace: Int, $cpt: Float, $memberStatus: Boolean, $pontos: Float) {
   updateMember(
-    data: {nickname: $nickname, idClass: $idClass, playOnOpen: $playOnOpen, cargo: "Membro", cpt: $cpt, level: $level, memberStatus: $memberStatus, idRace: $idRace}
+    data: {nickname: $nickname, idClass: $idClass, playOnOpen: $playOnOpen, cargo: "Membro", cpt: $cpt, level: $level, memberStatus: $memberStatus, idRace: $idRace, pontos: $pontos}
     where: {id: $id}
   ) {
     id
@@ -4550,6 +5397,7 @@ export type EditMemberMutationFn = Apollo.MutationFunction<EditMemberMutation, E
  *      idRace: // value for 'idRace'
  *      cpt: // value for 'cpt'
  *      memberStatus: // value for 'memberStatus'
+ *      pontos: // value for 'pontos'
  *   },
  * });
  */
@@ -4642,6 +5490,83 @@ export function useGetAccountByIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOpt
 export type GetAccountByIdQueryHookResult = ReturnType<typeof useGetAccountByIdQuery>;
 export type GetAccountByIdLazyQueryHookResult = ReturnType<typeof useGetAccountByIdLazyQuery>;
 export type GetAccountByIdQueryResult = Apollo.QueryResult<GetAccountByIdQuery, GetAccountByIdQueryVariables>;
+export const GetLogPontosDocument = gql`
+    query GetLogPontos {
+  logPontos(first: 5, orderBy: createdAt_DESC) {
+    nickname
+    idAcao
+    mensagem
+    createdAt
+    ponto
+  }
+}
+    `;
+
+/**
+ * __useGetLogPontosQuery__
+ *
+ * To run a query within a React component, call `useGetLogPontosQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetLogPontosQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetLogPontosQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetLogPontosQuery(baseOptions?: Apollo.QueryHookOptions<GetLogPontosQuery, GetLogPontosQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetLogPontosQuery, GetLogPontosQueryVariables>(GetLogPontosDocument, options);
+      }
+export function useGetLogPontosLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetLogPontosQuery, GetLogPontosQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetLogPontosQuery, GetLogPontosQueryVariables>(GetLogPontosDocument, options);
+        }
+export type GetLogPontosQueryHookResult = ReturnType<typeof useGetLogPontosQuery>;
+export type GetLogPontosLazyQueryHookResult = ReturnType<typeof useGetLogPontosLazyQuery>;
+export type GetLogPontosQueryResult = Apollo.QueryResult<GetLogPontosQuery, GetLogPontosQueryVariables>;
+export const GetLogsByNicknameDocument = gql`
+    query GetLogsByNickname($nickname: String!) {
+  logPontos(where: {nickname: $nickname}) {
+    ponto
+    mensagem
+    nickname
+    idAcao
+    createdAt
+  }
+}
+    `;
+
+/**
+ * __useGetLogsByNicknameQuery__
+ *
+ * To run a query within a React component, call `useGetLogsByNicknameQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetLogsByNicknameQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetLogsByNicknameQuery({
+ *   variables: {
+ *      nickname: // value for 'nickname'
+ *   },
+ * });
+ */
+export function useGetLogsByNicknameQuery(baseOptions: Apollo.QueryHookOptions<GetLogsByNicknameQuery, GetLogsByNicknameQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetLogsByNicknameQuery, GetLogsByNicknameQueryVariables>(GetLogsByNicknameDocument, options);
+      }
+export function useGetLogsByNicknameLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetLogsByNicknameQuery, GetLogsByNicknameQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetLogsByNicknameQuery, GetLogsByNicknameQueryVariables>(GetLogsByNicknameDocument, options);
+        }
+export type GetLogsByNicknameQueryHookResult = ReturnType<typeof useGetLogsByNicknameQuery>;
+export type GetLogsByNicknameLazyQueryHookResult = ReturnType<typeof useGetLogsByNicknameLazyQuery>;
+export type GetLogsByNicknameQueryResult = Apollo.QueryResult<GetLogsByNicknameQuery, GetLogsByNicknameQueryVariables>;
 export const GetMemberByNicknameDocument = gql`
     query GetMemberByNickname($nickname: String!) {
   member(where: {nickname: $nickname}) {
@@ -4726,6 +5651,46 @@ export function useGetMembersLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions
 export type GetMembersQueryHookResult = ReturnType<typeof useGetMembersQuery>;
 export type GetMembersLazyQueryHookResult = ReturnType<typeof useGetMembersLazyQuery>;
 export type GetMembersQueryResult = Apollo.QueryResult<GetMembersQuery, GetMembersQueryVariables>;
+export const TopThreePontosDocument = gql`
+    query TopThreePontos {
+  members(first: 3, orderBy: pontos_DESC) {
+    nickname
+    idRace
+    idClass
+    level
+    pontos
+    cpt
+    cargo
+  }
+}
+    `;
+
+/**
+ * __useTopThreePontosQuery__
+ *
+ * To run a query within a React component, call `useTopThreePontosQuery` and pass it any options that fit your needs.
+ * When your component renders, `useTopThreePontosQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useTopThreePontosQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useTopThreePontosQuery(baseOptions?: Apollo.QueryHookOptions<TopThreePontosQuery, TopThreePontosQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<TopThreePontosQuery, TopThreePontosQueryVariables>(TopThreePontosDocument, options);
+      }
+export function useTopThreePontosLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TopThreePontosQuery, TopThreePontosQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<TopThreePontosQuery, TopThreePontosQueryVariables>(TopThreePontosDocument, options);
+        }
+export type TopThreePontosQueryHookResult = ReturnType<typeof useTopThreePontosQuery>;
+export type TopThreePontosLazyQueryHookResult = ReturnType<typeof useTopThreePontosLazyQuery>;
+export type TopThreePontosQueryResult = Apollo.QueryResult<TopThreePontosQuery, TopThreePontosQueryVariables>;
 export const LoginDocument = gql`
     query Login($login: String!) {
   account(where: {login: $login}) {

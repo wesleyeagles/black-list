@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Navbar.scss";
-import { Button } from "react-bootstrap";
+import { Button, Dropdown } from "react-bootstrap";
 import useUserInfo from "../../Hooks/useUserInfo";
 import useNavbar from "./Hooks/useNavbar";
 import CadastrarPersonagem from "./Personagem/Pages/Cadastrar.Personagem";
@@ -46,13 +46,18 @@ const Navbar = ({ page, setPage }: INavbarProps) => {
 				</div>
 
 				<div className="navbar-user">
-					<div className="d-flex flex-column align-items-center">
-						<Link onClick={() => setPage(4)} className={`${page === 4 ? "selected-link" : null}`} to="/area-administrativa">
-							Área Administrativa
-						</Link>
-						{data ? <small className="text-white">{data.account.login}</small> : null}
-					</div>
-					<div className="user-photo"></div>
+					<div className="d-flex flex-column align-items-center">{data ? <small className="text-white">{data.account.login}</small> : null}</div>
+					<Dropdown>
+						<Dropdown.Toggle className="p-0 m-0 togglex">
+							<div className="user-photo"></div>
+						</Dropdown.Toggle>
+
+						<Dropdown.Menu>
+							<Dropdown.Item onClick={() => localStorage.clear()} className="text-dark" href="/login">
+								Logout
+							</Dropdown.Item>
+						</Dropdown.Menu>
+					</Dropdown>
 				</div>
 			</div>
 			<CadastrarPersonagem show={showPersonagemModal} setShow={setShowPersonagemModal} />

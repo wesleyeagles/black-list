@@ -1,0 +1,51 @@
+@import "/src/Style/Functions.scss";
+
+.pontos-wrapper {
+	width: 70%;
+	padding: 32px;
+	background-color: #221d21;
+	margin-left: 90px;
+	border-radius: 12px;
+
+	.pontos {
+		width: 66%;
+	}
+
+	.log-pontos {
+		width: 100%;
+
+		.title {
+			color: white;
+			background-color: #0b5ed8;
+			flex: none;
+			padding-block: 6px;
+			padding-inline: 12px;
+		}
+	}
+
+}
+
+
+.cadastro-grid {
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas:
+        "#{gridSpanArea("acao", 9)} #{gridSpanArea("pontos", 5)}"
+        "#{gridSpanArea("mensagem", 14)}";
+
+    column-gap: 0.8rem;
+    row-gap: 0.5rem;
+
+    .mensagem {
+        grid-area: mensagem;
+    }
+
+    .pontos {
+        grid-area: pontos;
+    }
+
+    .acao {
+        grid-area: acao;
+    }
+}

@@ -1,0 +1,11 @@
+query TopThreePontos {
+  members(first: 3, orderBy: pontos_DESC) {
+    nickname
+    idRace
+    idClass
+    level
+    pontos
+    cpt
+    cargo
+  }
+}
