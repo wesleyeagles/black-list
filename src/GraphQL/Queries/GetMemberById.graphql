@@ -1,0 +1,14 @@
+query GetMemberByNickname ($nickname: String!) {
+  member(where: {nickname: $nickname}) {
+    id
+    idRace
+    level
+    nickname
+    playOnOpen
+    pontos
+    idClass
+    memberStatus
+    cpt
+    cargo
+  }
+}

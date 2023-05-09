@@ -13,27 +13,21 @@ const personagemSchema = z.object({
 		.max(15, {
 			message: "Máximo de 15 caracteres",
 		}),
-	level: z.number({
-		required_error: "Você deve confirmar a senha",
-	}),
+	level: z.number(),
 	idRace: z.number({
 		required_error: "Você deve selecionar uma raça",
 	}),
-	class: z
-		.string({
-			required_error: "Você deve selecionar uma classe",
-		})
-		.nullable(),
+	idClass: z.number({
+		required_error: "Você deve selecionar uma classe",
+	}),
 
 	cpt: z.number().nullable().optional(),
-	status: z.boolean({
+	memberStatus: z.boolean({
+		required_error: "Obrigatório",
+	}),
+	playOnOpen: z.boolean({
 		required_error: "Você deve confirmar a senha",
 	}),
-	playOnOpen: z
-		.boolean({
-			required_error: "Você deve confirmar a senha",
-		})
-		.optional(),
 });
 
 interface IFormPersonagemProps {
@@ -45,8 +39,6 @@ const usePersonagemForm = ({ defaultValues }: IFormPersonagemProps) => {
 		resolver: zodResolver(personagemSchema),
 		defaultValues: defaultValues ?? {
 			level: 1,
-			status: true,
-			playOnOpen: false,
 		},
 	});
 

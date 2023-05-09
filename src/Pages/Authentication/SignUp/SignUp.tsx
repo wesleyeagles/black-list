@@ -1,9 +1,8 @@
 import { Button, Form } from "react-bootstrap";
 import CustomText from "../../../Components/FormInputs/CustomTextInput/CustomText";
 import useFormSignUp, { SignUpHandleSubmitValues } from "../Login/SignUpSchema/SignUpSchema";
-import { useMutation } from "@apollo/client";
-import { createAccount } from "../Login/Mutations/SignUpMutation";
 import { toast } from "react-toastify";
+import { useCreateAccountMutation } from "../../../GraphQL/generated";
 
 interface ISignUpProps {
 	setPage: (page: boolean) => void;
@@ -12,7 +11,7 @@ interface ISignUpProps {
 const SignUp = ({ setPage }: ISignUpProps) => {
 	const { methods } = useFormSignUp();
 
-	const [signUpUser] = useMutation(createAccount);
+	const [createAccountMutation] = useCreateAccountMutation();
 
 	const onSubmitSignUp = async ({ confirmPassword, ...data }: SignUpHandleSubmitValues) => {
 		const password = methods.watch("password");
@@ -32,7 +31,7 @@ const SignUp = ({ setPage }: ISignUpProps) => {
 				theme: "colored",
 			});
 
-			await signUpUser({
+			await createAccountMutation({
 				variables: {
 					data: data,
 				},
@@ -72,6 +71,8 @@ const SignUp = ({ setPage }: ISignUpProps) => {
 						});
 					}
 				},
+			}).catch((err) => {
+				console.log(err);
 			});
 		} else {
 			methods.setError("confirmPassword", {

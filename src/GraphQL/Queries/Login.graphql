@@ -1,0 +1,10 @@
+query Login($login: String!) {
+		account(where: { login: $login }) {
+			id
+			login
+			password
+			members {
+				nickname
+			}
+		}
+	}

@@ -1,13 +1,11 @@
-import { useLazyQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
-import { getAccountById } from "../Queries/getAccountById";
+import { useGetAccountByIdLazyQuery } from "../GraphQL/generated";
 
 const useUserInfo = () => {
 	const [data, setData] = useState<any>();
-
 	const userId = localStorage.getItem("token");
 
-	const [getAccountData] = useLazyQuery(getAccountById);
+	const [getAccountData] = useGetAccountByIdLazyQuery();
 
 	useEffect(() => {
 		if (userId) {

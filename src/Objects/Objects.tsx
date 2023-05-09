@@ -257,7 +257,7 @@ export const raceOptions = [
 ];
 
 export interface ClassesOptions {
-	readonly value: string;
+	readonly value: number;
 	readonly label: any;
 	readonly img?: string;
 }
@@ -278,64 +278,58 @@ const label = ({ image, label }: ILabelProps) => {
 	);
 };
 
-const accretiaMelleClasses: readonly ClassesOptions[] = [
+export const accretiaClassesOptions: readonly ClassesOptions[] = [
 	{
-		value: "Punisher",
+		value: 1,
 		label: label({
 			image: "punisher",
 			label: "Punisher",
 		}),
 	},
 	{
-		value: "Assaulter",
+		value: 2,
 		label: label({
 			image: "assaulter",
 			label: "Assaulter",
 		}),
 	},
 	{
-		value: "Mercenary",
+		value: 3,
 		label: label({
 			image: "mercenary",
 			label: "Mercenary",
 		}),
 	},
-];
-
-const accretiaRangerClasses: readonly ClassesOptions[] = [
 	{
-		value: "Striker",
+		value: 4,
 		label: label({
 			image: "striker",
 			label: "Striker",
 		}),
 	},
 	{
-		value: "Dementer",
+		value: 5,
 		label: label({
 			image: "dementer",
 			label: "Dementer",
 		}),
 	},
 	{
-		value: "Phantom Shadow",
+		value: 6,
 		label: label({
 			image: "scout",
 			label: "Phantom Shadow",
 		}),
 	},
-];
-
-const accretiaSpecClasses: readonly ClassesOptions[] = [
 	{
-		value: "Scientist",
+		value: 7,
 		label: label({
 			image: "scientist",
 			label: "Scientist",
 		}),
 	},
 	{
-		value: "Battle Leader",
+		value: 8,
 		label: label({
 			image: "battleleader",
 			label: "Battle Leader",
@@ -343,88 +337,79 @@ const accretiaSpecClasses: readonly ClassesOptions[] = [
 	},
 ];
 
-const bellatoMelleClasses: readonly ClassesOptions[] = [
+export const bellatoClassesOptions: readonly ClassesOptions[] = [
 	{
-		value: "Berserker",
+		value: 9,
 		label: label({
 			image: "berserker",
 			label: "Berserker",
 		}),
 	},
 	{
-		value: "Armsman",
+		value: 10,
 		label: label({
 			image: "armsman",
 			label: "Armsman",
 		}),
 	},
 	{
-		value: "Shield Miler",
+		value: 11,
 		label: label({
 			image: "shieldmiller",
 			label: "Shield Miler",
 		}),
 	},
-];
-
-const bellatoRangerClasses: readonly ClassesOptions[] = [
 	{
-		value: "Hidden Soldier",
+		value: 12,
 		label: label({
 			image: "hiddensoldier",
 			label: "Hidden Soldier",
 		}),
 	},
 	{
-		value: "Sentinel",
+		value: 13,
 		label: label({
 			image: "sentinel",
 			label: "Sentinel",
 		}),
 	},
 	{
-		value: "Infiltrator",
+		value: 14,
 		label: label({
 			image: "infiltrador",
 			label: "Infiltrator",
 		}),
 	},
-];
-
-const bellatoMageClasses: readonly ClassesOptions[] = [
 	{
-		value: "Wizard",
+		value: 15,
 		label: label({
 			image: "wizard",
 			label: "Wizard",
 		}),
 	},
 	{
-		value: "Astraler",
+		value: 16,
 		label: label({
 			image: "astraler",
 			label: "Astraler",
 		}),
 	},
 	{
-		value: "Holy Chandra",
+		value: 17,
 		label: label({
 			image: "holychandra",
 			label: "Holy Chandra",
 		}),
 	},
-];
-
-const bellatoSpecClasses: readonly ClassesOptions[] = [
 	{
-		value: "Armor Rider",
+		value: 18,
 		label: label({
 			image: "armorrider",
 			label: "Armor Rider",
 		}),
 	},
 	{
-		value: "Mental Smith",
+		value: 19,
 		label: label({
 			image: "mentalsmith",
 			label: "Mental Smith",
@@ -432,142 +417,75 @@ const bellatoSpecClasses: readonly ClassesOptions[] = [
 	},
 ];
 
-const coraMelleClasses: readonly ClassesOptions[] = [
+export const coraClassesOptions: readonly ClassesOptions[] = [
 	{
-		value: "Templar",
+		value: 20,
 		label: label({
 			image: "templar",
 			label: "Templar",
 		}),
 	},
 	{
-		value: "Guardian",
+		value: 21,
 		label: label({
 			image: "guardian",
 			label: "Guardian",
 		}),
 	},
 	{
-		value: "Black Knight",
+		value: 22,
 		label: label({
 			image: "blackknight",
 			label: "Black Knight",
 		}),
 	},
-];
-
-const coraRangerClasses: readonly ClassesOptions[] = [
 	{
-		value: "Adventurer",
+		value: 23,
 		label: label({
 			image: "adventurer",
 			label: "Adventurer",
 		}),
 	},
 	{
-		value: "Stealer",
+		value: 24,
 		label: label({
 			image: "stealer",
 			label: "Stealer",
 		}),
 	},
 	{
-		value: "Assassin",
+		value: 25,
 		label: label({
 			image: "assassin",
 			label: "Assassin",
 		}),
 	},
-];
-
-const coraMageClasses: readonly ClassesOptions[] = [
 	{
-		value: "Warlock",
+		value: 26,
 		label: label({
 			image: "warlock",
 			label: "Warlock",
 		}),
 	},
 	{
-		value: "Dark Priest",
+		value: 27,
 		label: label({
 			image: "darkpriest",
 			label: "Dark Priest",
 		}),
 	},
 	{
-		value: "Grazier",
+		value: 28,
 		label: label({
 			image: "grazier",
 			label: "Grazier",
 		}),
 	},
-];
-
-const coraSpecClasses: readonly ClassesOptions[] = [
 	{
-		value: "Artist",
+		value: 29,
 		label: label({
 			image: "artist",
 			label: "Artist",
 		}),
-	},
-];
-
-export interface GroupedOptions {
-	readonly label?: string;
-	readonly options: readonly ClassesOptions[] | readonly ClassesOptions[];
-}
-
-export const groupedAccretiaOptions: readonly GroupedOptions[] = [
-	{
-		label: "Melle",
-		options: accretiaMelleClasses,
-	},
-	{
-		label: "Ranger",
-		options: accretiaRangerClasses,
-	},
-	{
-		label: "Spec",
-		options: accretiaSpecClasses,
-	},
-];
-
-export const groupedBellatoOptions: readonly GroupedOptions[] = [
-	{
-		label: "Melle",
-		options: bellatoMelleClasses,
-	},
-	{
-		label: "Ranger",
-		options: bellatoRangerClasses,
-	},
-	{
-		label: "Mage",
-		options: bellatoMageClasses,
-	},
-	{
-		label: "Spec",
-		options: bellatoSpecClasses,
-	},
-];
-
-export const groupedCoraOptions: readonly GroupedOptions[] = [
-	{
-		label: "Melle",
-		options: coraMelleClasses,
-	},
-	{
-		label: "Ranger",
-		options: coraRangerClasses,
-	},
-	{
-		label: "Mage",
-		options: coraMageClasses,
-	},
-	{
-		label: "Spec",
-		options: coraSpecClasses,
 	},
 ];

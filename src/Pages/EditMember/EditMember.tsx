@@ -10,11 +10,11 @@ import CustomCheckbox from "../../Components/FormInputs/CustomCheckbox/CustomChe
 import "./createmember.scss";
 import LoadingIcon from "../../assets/Icones/LoadingIcon";
 import { useNavigate, useParams } from "react-router-dom";
-import { getMemberById } from "../../Queries/getMemberById";
 import { useEffect } from "react";
 import { editMember } from "../../Mutations/editMember";
 
 const EditMember = () => {
+	return <div>Teste</div>;
 	const { control, handleSubmit, setError, setValue } = useForm({
 		resolver: zodResolver(createMemberSchema),
 		defaultValues: {

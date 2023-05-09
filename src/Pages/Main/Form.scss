@@ -1,189 +1,304 @@
 .container-wrapper {
-  background-image: url("https://rfseapvp.com/images/rfseapvp.jpg");
-  width: 100%;
-  height: 100%;
+	background-image: url("https://rfseapvp.com/images/rfseapvp.jpg");
+	width: 100%;
+	height: 100%;
 }
 
 .form-group {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .my-input {
-  display: block;
+	display: block;
 }
 
 .class-icon {
-  width: 40px;
+	width: 40px;
 }
 
 .discord-widget {
-  position: absolute;
-  right: 40px;
-  top: 50%;
-  transform: translateY(-50%);
+	position: absolute;
+	right: 40px;
+	top: 50%;
+	transform: translateY(-50%);
 }
-  
-  .my-error {
-    color: #f00;
-    font-size: 14px;
-    display: block!important;
-  }
 
-  .data-table {
-    flex: none;
-    width: 1000px;
-    flex: none;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-  }
+.my-error {
+	color: #f00;
+	font-size: 14px;
+	display: block !important;
+}
 
-  .rdt_Table {
-    height: 540px!important;
-  }
-  
-  .my-button {
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    font-size: 16px;
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-    cursor: pointer;
-    
-    .loading {
+.my-button {
+	background-color: #007bff;
+	border: none;
+	border-radius: 5px;
+	color: #fff;
+	font-size: 16px;
+	padding: 10px 20px;
+	display: flex;
+	align-items: center;
+	margin-top: 10px;
+	cursor: pointer;
+
+	.loading {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+	}
+
+	&:disabled {
+		background-color: #c0c0c0 !important;
+	}
+}
+
+.my-button:hover {
+	background-color: #0069d9;
+}
+
+.main {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	justify-content: space-between;
+
+	h2 {
+		color: white;
+	}
+
+	p {
+		color: white;
+	}
+
+	ul {
+		li {
+			color: white;
+			a {
+				color: white;
+			}
+		}
+	}
+
+	.header {
+		height: 90px;
+		flex: none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding-inline: 40px;
+		color: #23292c;
+
+		.navigation {
+			display: flex;
+			gap: 12px;
+		}
+
+		a {
+			color: #23292c;
+			text-decoration: none;
+			background-color: white;
+			font-weight: bold;
+			padding-inline: 8px;
+			padding-block: 4px;
+			font-size: 14px;
+			border-radius: 4px;
+			transition: 0.4s;
+
+			&:hover {
+				background-color: #007bff;
+				color: white;
+			}
+		}
+	}
+
+	.class-count {
+		background-color: white;
+		width: 100%;
+		height: 50px;
+		border-top: 1px solid rgb(183, 179, 179);
+		display: flex;
+		gap: 10px;
+		padding: 12px;
+
+		.count {
+			border: solid 1px black;
+			display: flex;
+			align-items: center;
+			gap: 7px;
+			height: 31px;
+			width: 55px;
+			img {
+				width: 30px;
+			}
+		}
+	}
+
+	.inicio {
+		height: 100%;
+		padding-left: 500px;
+		display: flex;
+		gap: 0px;
+
+		.inicio-1 {
+			width: 35%;
+			p {
+				width: 80%;
+			}
+		}
+
+		.carousel {
+			width: 650px;
+			border: solid 1px white;
+			border-radius: 4px;
+			overflow: hidden;
+		}
+
+		.carousel-img {
+			width: 100% !important;
+			height: 700px;
+			object-fit: cover;
+		}
+
+		.info-guild {
+			margin-top: 60px;
+		}
+
+		.server-info {
+			margin-top: 60px;
+			ul {
+				margin-top: 4px;
+			}
+		}
+	}
+}
+
+.main-wrapper {
+	background-color: #221d21;
+	width: 1000px;
+	height: 75%;
+	margin-inline: auto;
+	display: flex;
+	color: #fff;
+
+	.news {
+		padding-inline: 32px;
+		width: 700px;
+    overflow: auto;
+    max-height: 6000px;
+
+   &::-webkit-scrollbar {
+    width: 3px;
+  height: 3px; 
+   }
+
+		.nav-tabs {
+			border-bottom: 1px solid #483f44;
+			gap: 10px;
+			align-items: center;
+		}
+
+		.nav-link {
+			color: white;
+			font-weight: 300;
+			padding: 0;
+			padding-top: 12px;
+			transition: none;
+			opacity: 0.6;
+			font-size: 16px;
+
+			button {
+				&:focus-within,
+				&:focus-visible {
+					border: none;
+				}
+			}
+		}
+
+		.accordion-item {
+			background: transparent;
+			border: none;
+			border-radius: none;
+			margin-block: 12px;
+		}
+
+		.accordion-button {
+			font-size: 18px;
+			background-color: #34373893;
+			border: 1px solid #0079b1;
+			color: #fff;
+			transition: 0.3s;
+			margin-top: 2px;
+			margin-bottom: 2px;
+			border-radius: none !important;
+			padding: 14px 20px;
+		}
+
+		.accordion-button:not(.collapsed) {
+			color: #fff;
+			background-color: #0079b193;
+			box-shadow: none;
+		}
+
+    .accordion-header button {
       display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    &:disabled {
-      background-color: #c0c0c0!important;
-    }
-  }
-  
-  .my-button:hover {
-    background-color: #0069d9;
-  }
-
-  .main {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: space-between;
-
-    h2 {
-      color: white;
-    }
-
-    p {
-      color: white;
-    }
-
-    ul {
-      li {
-        color: white;
-        a {
-          color: white;
-        }
-      }
-    }
-
-    .header {
-      height: 90px;
-      flex: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding-inline: 40px;
-      color: #23292c;
-
-      .navigation {
-        display: flex;
-        gap: 12px;
-      }
-
-      a {
-        color: #23292c;
-        text-decoration: none;
-        background-color: white;
-        font-weight: bold;
-        padding-inline: 8px;
-        padding-block: 4px;
-        font-size: 14px;
-        border-radius: 4px;
-        transition: .4s;
-
-        &:hover {
-          background-color: #007bff;
-          color: white;
-        }
-
-      }
-      
-    }
-
-    .class-count {
-      background-color: white;
+      justify-content: space-between;
       width: 100%;
-      height: 50px;
-      border-top: 1px solid rgb(183, 179, 179);
-      display: flex;
-      gap: 10px;
-      padding: 12px;
 
-      .count {
-        border: solid 1px black;
-        display: flex;
-        align-items: center;
-        gap: 7px;
-        height: 31px;
-        width: 55px;
-        img {
-          width: 30px;
-        }
+      .news-title {
+        width: 80%;
       }
     }
 
-    .inicio {
-      height: 100%;
-      padding-left: 500px;
-      display: flex;
-      gap: 0px;
-
-      .inicio-1 {
-        width: 35%;
-        p {
-          width: 80%;
-        }
-      }
-
-      .carousel {
-        width: 650px;
-        border: solid 1px white;
-        border-radius: 4px;
-        overflow: hidden;
-      }
-
-      .carousel-img {
-        width: 100%!important;
-        height: 700px;
-        object-fit: cover;
-      }
-
-      .info-guild {
-        margin-top: 60px;
-      }
-
-      .server-info {
-        margin-top: 60px;
-        ul {
-          margin-top: 4px;
-        }
-      }
+    .news-date {
+      font-size: 14px;
     }
 
+		.accordion-body {
+			color: #fff;
+		}
+
+		.accordion-button::after {
+			transition: all ease 0.5s;
+			pointer-events: none;
+      background-image: url(https://rfseapvp.com/images/collapse-open.png);
+		}
+    
+    .accordion-button:not(.collapsed)::after {
+      background-image: url(https://rfseapvp.com/images/collapse-close.png);
+    }
+
+		.nav-tabs .nav-link:focus,
+		.nav-tabs .nav-link:hover {
+			isolation: isolate;
+			border: none;
+		}
+
+		.nav-tabs .nav-item.show .nav-link,
+		.nav-tabs .nav-link.active {
+			color: white;
+			background-color: transparent;
+			border: none;
+			font-weight: 500;
+			padding-inline: 0;
+			opacity: 1;
+			font-size: 16px;
+		}
+	}
+
+  .logs {
+    background-color: #282327;
+    width: 320px;
+    .rdt_Table {
+      width: 100%;
+      height: 674px!important;
+    }
+
+    .personagens {
+      border-bottom: 1px solid #483f44;
+      margin-inline: 12px;
+      padding-top: 14px;
+      margin-bottom: 12px;
+    }
   }
+}

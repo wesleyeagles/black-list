@@ -1,10 +1,11 @@
 import { useQuery } from "@apollo/client";
 import DataTable from "react-data-table-component";
-import { getMembers, getMembersPunisher, getMembersSpec, getMembersStriker, getMembersTanker, getMembersTrapper } from "../../Queries/getMembers";
 import { Link } from "react-router-dom";
 import { FaEdit } from "react-icons/fa";
 
 const Members = () => {
+	return <div>Teste</div>;
+	//
 	const columns = [
 		{
 			name: "Nickname",

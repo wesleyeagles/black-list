@@ -1,11 +1,10 @@
 import { Modal } from "react-bootstrap";
 import PersonagemForm from "../PersonagemForm";
 import "../Personagem.scss";
-import { useMutation } from "@apollo/client";
-import { createMember } from "../../../../Mutations/createMember";
 import useUserInfo from "../../../../Hooks/useUserInfo";
 import { PersonagemHandleSubmitValues } from "../Hooks/usePersonagemForm";
 import { toast } from "react-toastify";
+import { useCreateMemberMutation } from "../../../../GraphQL/generated";
 
 interface IPersonagemProps {
 	show: boolean;
@@ -13,7 +12,7 @@ interface IPersonagemProps {
 }
 
 const CadastrarPersonagem = ({ show, setShow }: IPersonagemProps) => {
-	const [createMemberMutation] = useMutation(createMember);
+	const [createMemberMutation] = useCreateMemberMutation();
 	const { data: userData } = useUserInfo();
 
 	const handleSubmit = async (data: PersonagemHandleSubmitValues) => {
@@ -31,7 +30,7 @@ const CadastrarPersonagem = ({ show, setShow }: IPersonagemProps) => {
 		});
 
 		await createMemberMutation({
-			refetchQueries: "all",
+			refetchQueries: ["getAccountById"],
 			variables: {
 				id: userData.account.id,
 				...data,

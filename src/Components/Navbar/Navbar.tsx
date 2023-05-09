@@ -4,6 +4,7 @@ import { Button } from "react-bootstrap";
 import useUserInfo from "../../Hooks/useUserInfo";
 import useNavbar from "./Hooks/useNavbar";
 import CadastrarPersonagem from "./Personagem/Pages/Cadastrar.Personagem";
+import EditaPersonagem from "./Personagem/Pages/Editar.Personagem";
 
 interface INavbarProps {
 	page: number;
@@ -13,9 +14,7 @@ interface INavbarProps {
 const Navbar = ({ page, setPage }: INavbarProps) => {
 	const { data } = useUserInfo();
 
-	const { showPersonagemModal, setShowPersonagemModal } = useNavbar();
-
-	console.log(data);
+	const { showPersonagemModal, setShowPersonagemModal, setShowEditPersonagemModal, showEditPersonagemModal } = useNavbar();
 
 	return (
 		<div className="navbar-container">
@@ -40,7 +39,7 @@ const Navbar = ({ page, setPage }: INavbarProps) => {
 							data.account.members.length <= 0 ? (
 								<Button onClick={() => setShowPersonagemModal(true)}>Criar Personagem</Button>
 							) : (
-								<Button onClick={() => setShowPersonagemModal(true)}>Editar Personagem</Button>
+								<Button onClick={() => setShowEditPersonagemModal(true)}>Editar Personagem</Button>
 							)
 						) : null}
 					</div>
@@ -57,6 +56,7 @@ const Navbar = ({ page, setPage }: INavbarProps) => {
 				</div>
 			</div>
 			<CadastrarPersonagem show={showPersonagemModal} setShow={setShowPersonagemModal} />
+			<EditaPersonagem show={showEditPersonagemModal} setShow={setShowEditPersonagemModal} />
 		</div>
 	);
 };

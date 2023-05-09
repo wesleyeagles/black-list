@@ -1,7 +1,4 @@
-import { gql } from "@apollo/client";
-
-export const createMember = gql`
-	mutation createMember($id: ID!, $nickname: String!, $idClass: Int!, $playOnOpen: Boolean!, $level: Int!, $idRace: Int!, $cpt: Float, $status: Boolean!) {
+mutation CreateMember($id: ID!, $nickname: String!, $idClass: Int!, $playOnOpen: Boolean!, $level: Int!, $idRace: Int!, $cpt: Float, $memberStatus: Boolean!) {
 		updateAccount(
 			where: { id: $id }
 			data: {
@@ -13,7 +10,7 @@ export const createMember = gql`
 						cargo: "Membro"
 						cpt: $cpt
 						level: $level
-						memberStatus: $status
+						memberStatus: $memberStatus
 						idRace: $idRace
 						clhds52em2wb701ukde1ma626: { connect: { id: $id } }
 					}
@@ -26,4 +23,3 @@ export const createMember = gql`
 			id
 		}
 	}
-`;

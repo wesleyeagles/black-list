@@ -3,10 +3,9 @@ import CustomText from "../../../Components/FormInputs/CustomTextInput/CustomTex
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useLazyQuery } from "@apollo/client";
-import { useLogin } from "./Queries/LoginQuery";
 import { loginSchema } from "./LoginSchema/LoginSchema";
 import { useNavigate } from "react-router-dom";
+import { useLoginLazyQuery } from "../../../GraphQL/generated";
 
 interface ILoginProps {
 	setPage: (page: boolean) => void;
@@ -20,10 +19,10 @@ const Login = ({ setPage, setUserToken }: ILoginProps) => {
 
 	const navigate = useNavigate();
 
-	const [getUser] = useLazyQuery(useLogin);
+	const [getUser, { loading, data, error }] = useLoginLazyQuery();
 
 	// Arrumar tipagem da "data" depois
-	const onSubmit = async (data: any) => {
+	const onSubmit = (response: any) => {
 		const toastId = toast.loading("Autenticando, aguarde...", {
 			type: toast.TYPE.DEFAULT,
 			position: "top-right",
@@ -37,13 +36,15 @@ const Login = ({ setPage, setUserToken }: ILoginProps) => {
 			theme: "colored",
 		});
 
-		await getUser({
+		console.log(typeof getUser);
+
+		getUser({
 			variables: {
-				login: data.login,
+				login: response.login,
 			},
 			onCompleted: (res) => {
 				if (res.account) {
-					if (res.account.password === data.password) {
+					if (res.account.password === response.password) {
 						toast.update(toastId, {
 							type: toast.TYPE.SUCCESS,
 							position: "top-right",
@@ -103,6 +104,7 @@ const Login = ({ setPage, setUserToken }: ILoginProps) => {
 		<Form onSubmit={handleSubmit(onSubmit)}>
 			<CustomText label="Email" name="login" placeholder="usuario@gmail.com" control={control} />
 			<CustomText label="Senha" type="password" name="password" placeholder="*********" control={control} />
+			<Button onClick={() => getUser}>Botão</Button>
 			<div className="d-flex justify-content-end">
 				<a href="">Esqueceu sua senha?</a>
 			</div>

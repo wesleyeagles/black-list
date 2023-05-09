@@ -2,7 +2,7 @@ import { Button, Form, Modal } from "react-bootstrap";
 import CustomText from "../../FormInputs/CustomTextInput/CustomText";
 import usePersonagemForm, { PersonagemHandleSubmitValues } from "./Hooks/usePersonagemForm";
 import CustomSelect from "../../FormInputs/CustomSelectInput/CustomSelect";
-import { groupedAccretiaOptions, groupedBellatoOptions, groupedCoraOptions, levelOptions, raceOptions } from "../../../Objects/Objects";
+import { accretiaClassesOptions, bellatoClassesOptions, coraClassesOptions, levelOptions, raceOptions } from "../../../Objects/Objects";
 import { useState } from "react";
 import CustomCheckbox from "../../FormInputs/CustomCheckbox/CustomCheckbox";
 import CustomNumberInput from "../../FormInputs/CustomNumberInput/CustomNumber";
@@ -19,7 +19,7 @@ const PersonagemForm = ({ setShow, onSubmit, defaultValues }: IPersonagemFormPro
 		defaultValues,
 	});
 
-	const [race, setRace] = useState<any>(undefined);
+	const [race, setRace] = useState<any>(defaultValues ? defaultValues.idRace : undefined);
 
 	return (
 		<>
@@ -36,10 +36,19 @@ const PersonagemForm = ({ setShow, onSubmit, defaultValues }: IPersonagemFormPro
 							onChange={(val: any) => {
 								if (val.value === 0) {
 									setRace(0);
+									if (race != 0) {
+										methods.setValue("idClass", 1);
+									}
 								} else if (val.value === 1) {
 									setRace(1);
+									if (race != 1) {
+										methods.setValue("idClass", 9);
+									}
 								} else {
 									setRace(2);
+									if (race != 2) {
+										methods.setValue("idClass", 20);
+									}
 								}
 							}}
 							isClearable={false}
@@ -52,20 +61,20 @@ const PersonagemForm = ({ setShow, onSubmit, defaultValues }: IPersonagemFormPro
 					</div>
 					<div className="classe">
 						<CustomSelect
-							isClearable={true}
+							isClearable={false}
 							noOptionsMessage={() => "Selecione uma raça primeiro"}
 							placeholder="Selecione sua classe"
-							options={race === 0 ? groupedAccretiaOptions : race === 1 ? groupedBellatoOptions : race === 2 ? groupedCoraOptions : undefined}
+							options={race === 0 ? accretiaClassesOptions : race === 1 ? bellatoClassesOptions : race === 2 ? coraClassesOptions : undefined}
 							label="Classe *"
 							control={methods.control}
-							name="class"
+							name="idClass"
 						/>
 					</div>
 					<div className="cpt">
 						<CustomNumberInput decimalScale={0} prefix="CPT " canBeNull fixedDecimalScale placeholder="0,000" label="Pontos de Contribuição" control={methods.control} name="cpt" />
 					</div>
 					<div className="status">
-						<CustomCheckbox label="Status" control={methods.control} name="status" />
+						<CustomCheckbox label="Status" control={methods.control} name="memberStatus" />
 					</div>
 					<div className="abertura">
 						<CustomCheckbox label="PT Principal" control={methods.control} name="playOnOpen" />
