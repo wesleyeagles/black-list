@@ -1,5 +1,5 @@
 query GetMembers {
-  members {
+  members(first: 1000, orderBy: nickname_ASC) {
     id
     nickname
     playOnOpen

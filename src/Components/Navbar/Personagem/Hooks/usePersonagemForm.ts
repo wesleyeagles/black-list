@@ -39,6 +39,8 @@ const usePersonagemForm = ({ defaultValues }: IFormPersonagemProps) => {
 		resolver: zodResolver(personagemSchema),
 		defaultValues: defaultValues ?? {
 			level: 1,
+			memberStatus: true,
+			playOnOpen: false,
 		},
 	});
 

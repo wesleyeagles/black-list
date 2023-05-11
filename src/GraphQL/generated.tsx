@@ -5613,7 +5613,7 @@ export type GetMemberByNicknameLazyQueryHookResult = ReturnType<typeof useGetMem
 export type GetMemberByNicknameQueryResult = Apollo.QueryResult<GetMemberByNicknameQuery, GetMemberByNicknameQueryVariables>;
 export const GetMembersDocument = gql`
     query GetMembers {
-  members {
+  members(first: 1000, orderBy: nickname_ASC) {
     id
     nickname
     playOnOpen

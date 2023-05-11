@@ -4,7 +4,7 @@ import "../Personagem.scss";
 import useUserInfo from "../../../../Hooks/useUserInfo";
 import { PersonagemHandleSubmitValues } from "../Hooks/usePersonagemForm";
 import { toast } from "react-toastify";
-import { useCreateMemberMutation } from "../../../../GraphQL/generated";
+import { GetAccountByIdDocument, GetMembersDocument, TopThreePontosDocument, useCreateMemberMutation } from "../../../../GraphQL/generated";
 
 interface IPersonagemProps {
 	show: boolean;
@@ -30,7 +30,20 @@ const CadastrarPersonagem = ({ show, setShow }: IPersonagemProps) => {
 		});
 
 		await createMemberMutation({
-			refetchQueries: ["getAccountById"],
+			refetchQueries: [
+				{
+					query: GetMembersDocument,
+				},
+				{
+					query: TopThreePontosDocument,
+				},
+				{
+					query: GetAccountByIdDocument,
+					variables: {
+						id: userData.id,
+					},
+				},
+			],
 			variables: {
 				id: userData.account.id,
 				...data,

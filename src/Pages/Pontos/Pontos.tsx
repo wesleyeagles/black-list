@@ -102,7 +102,7 @@ const Pontos = () => {
 		},
 		{
 			name: "Pontos",
-			selector: (row: any) => row["pontos"] + 1000,
+			selector: (row: any) => row["pontos"],
 			sort: true,
 		},
 	];

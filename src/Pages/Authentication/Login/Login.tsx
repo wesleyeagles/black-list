@@ -104,7 +104,6 @@ const Login = ({ setPage, setUserToken }: ILoginProps) => {
 		<Form onSubmit={handleSubmit(onSubmit)}>
 			<CustomText label="Email" name="login" placeholder="usuario@gmail.com" control={control} />
 			<CustomText label="Senha" type="password" name="password" placeholder="*********" control={control} />
-			<Button onClick={() => getUser}>Botão</Button>
 			<div className="d-flex justify-content-end">
 				<a href="">Esqueceu sua senha?</a>
 			</div>

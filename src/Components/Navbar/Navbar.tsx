@@ -5,6 +5,7 @@ import useUserInfo from "../../Hooks/useUserInfo";
 import useNavbar from "./Hooks/useNavbar";
 import CadastrarPersonagem from "./Personagem/Pages/Cadastrar.Personagem";
 import EditaPersonagem from "./Personagem/Pages/Editar.Personagem";
+import { useGetMembersQuery } from "../../GraphQL/generated";
 
 interface INavbarProps {
 	page: number;
@@ -13,6 +14,8 @@ interface INavbarProps {
 
 const Navbar = ({ page, setPage }: INavbarProps) => {
 	const { data } = useUserInfo();
+
+	const { data: members } = useGetMembersQuery();
 
 	const { showPersonagemModal, setShowPersonagemModal, setShowEditPersonagemModal, showEditPersonagemModal } = useNavbar();
 
@@ -28,9 +31,6 @@ const Navbar = ({ page, setPage }: INavbarProps) => {
 					<div className="links">
 						<Link onClick={() => setPage(0)} className={`${page === 0 ? "selected-link" : null}`} to="/">
 							Inicio
-						</Link>
-						<Link onClick={() => setPage(1)} className={`${page === 1 ? "selected-link" : null}`} to="/membros">
-							Ver Membros
 						</Link>
 						<Link onClick={() => setPage(2)} className={`${page === 2 ? "selected-link" : null}`} to="/pontos">
 							Ver Pontos
